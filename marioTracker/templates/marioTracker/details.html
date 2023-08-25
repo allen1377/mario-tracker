@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <h1>Player: {{ player.firstname }} {{ player.lastname }} stats: </h1> 
+        <ul>
+        {% for wins in player.wins_set.all %}
+            <li> Date: {{ wins.date }} </li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>

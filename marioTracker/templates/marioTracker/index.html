@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+{% if players_list %}
+    <ul>
+        {% for player in players_list %}
+            <li><a href="{% url 'marioTracker:detail' player.id %}">{{ player.firstname }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p> No players yet BOSO</p>
+    {% endif %}
+</body>
+</html>
