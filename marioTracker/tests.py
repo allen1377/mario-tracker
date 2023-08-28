@@ -57,10 +57,13 @@ class DetailView(TestCase):
           The detail view of a player displayes players info
           """
           player1 = create_player(firstname_= "player1", lastname_= "lastname", wins_=3)
-          create_mock_wins(player1.wins, player1.id)
-          url = reverse("marioTracker:detail", args=(player1,))
+          create_mock_wins(player1.wins, player1)
+          url = reverse("marioTracker:detail", args=(player1.id,))
           response = self.client.get(url)
-          self.assertContains(response, [player1.firstname, player1.lastname, player1.wins.set.all().date])
+          winsList = []
+          for x in player1.wins_set.all():
+               winsList.append(x)
+          self.assertContains(response, [player1.firstname, player1.lastname, winsList])
 
 
         

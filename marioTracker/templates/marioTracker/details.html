@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+{% extends 'marioTracker/base.html' %}
 
-<html>
-    <body>
-        <h1>Player: {{ player.firstname }} {{ player.lastname }} stats: </h1> 
-        <ul>
-        {% for wins in player.wins_set.all %}
-            <li> Date: {{ wins.date }} </li>
-        {% endfor %}
-        </ul>
-    </body>
-</html>
+{% content block %}
+    <h1>Player: {{ player.firstname }} {{ player.lastname }} stats: </h1> 
+    <ul>
+    {% for wins in player.wins_set.all %}
+        <li> Date: {{ wins.date }} </li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'marioTracker:index' %}"> Back to Players</a>
+{% endblock %}
