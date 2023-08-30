@@ -7,12 +7,10 @@
 {% endblock %}
 
 {% block nav %}
-    <nav>
-        <ul>
-            <p>Some</p>
-            {% for x in index_list.zipped_List %}
-                <li><a href="{% url urlParam %}">{{ link }}</a></li>
-                <p>{{x}}</p>
+    <nav class = "navbar">
+        <ul class= "nav-links">
+            {% for link, urlParam in zipped_List %}
+                <li class="nav-item"><a href="{% url urlParam %}"><b>{{ link }}</b></a></li>
             {% endfor %}
         </ul>
     </nav>

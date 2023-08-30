@@ -1,0 +1,17 @@
+{% extends 'marioTracker/base.html' %}
+
+{% block content %}
+    <p>MAP</p>
+    <div class = "RaceContent">
+        <div class = "Options">
+            <ul>
+                <li>Map</li>
+            </ul>
+        </div>
+        <div>
+            <a href="{% url 'marioTracker:displayView' %}">
+                <button>Let's Race</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

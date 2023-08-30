@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% load static %}
+        <script type="text/javascript" src="{% static '/marioTracker/JS/map.js' %}"></script>
+        <link type="stylesheet" src="{% static '/marioTracker/index.css' %}">
+    </head>
+    <!-- <body data-original="{% static '/marioTracker/images/'}"> --->
+    <body>
+        
+        <p id="test">
+            {% static '/marioTracker/images/' %}
+        </p>
+        <p>
+            {{ map_list.0 }}
+        </p>
+        <img id="imageTest" src="{% static '/marioTracker/images/'}">
+        
+        <div class = "slideshow-container">
+
+            <div class = "mySlides">
+                <div class="numbertext"> 1 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.0}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 2 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.1}">
+                <div class="text">Caption Text2</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 3 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.2}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 4 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.3}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 5 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.4}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 6 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.5}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 7 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.6}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 8 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.7}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class = "mySlides">
+                <div class="numbertext"> 9 / {{ map_list|length }}</div>
+                <img src = "{% static '/marioTracker/images/' map_list.8}">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">some</a>
+            <a class="next" onclick="plusSlides(1)">some else</a>
+        </div>
+        <br>
+
+        <div style="text-align: center;">
+            <span class="dot" onclick="currentSlide(1)"></span>
+        </div>
+        
+    </body>
+</html>
