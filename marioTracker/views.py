@@ -57,7 +57,7 @@ class DisplayMapView(generic.ListView):
             "ShyGuyBeach", "DelfinoSquare", "WaluigiStadium",
             "DesertHills", "BowsersCastle3", "DK'sJungleParkway",
             "MarioCircuit", "MarioCircuit3", "PeachGardens",
-            "DK Mountain", "Bowser's Castle" ]
+            "DK-Mountain", "Bowser's Castle" ]
         
         mapChoices = random.choices(mapList, k=9)
         return mapChoices
