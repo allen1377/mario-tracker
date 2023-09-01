@@ -47,17 +47,17 @@ class DisplayMapView(generic.ListView):
     
     def randomMap(self):
         mapList = [
-             "LuigiCircuit", "MushroomGorge", "MooMooMeadows",
-            "ToadsFactory", "MarioCircuit", "CoconutMall",
-            "DKSummit", "Wario'sGoldmine", "DaisyCircuit",
-            "GrumbleVolcano", "KoopaCape", "MapleTreeway",
-            "BowsersCastle", "DryDryRuins", "MoonViewHighway",
-            "RainbowRoad", "PeachBeach", "YoshiFalls",
-            "GhostValley2", "MarioRaceway", "SherbertLand",
-            "ShyGuyBeach", "DelfinoSquare", "WaluigiStadium",
-            "DesertHills", "BowsersCastle3", "DK'sJungleParkway",
-            "MarioCircuit", "MarioCircuit3", "PeachGardens",
-            "DK-Mountain", "Bowser's Castle" ]
+             "LuigiCircuit.png", "MushroomGorge.jpg", "MooMooMeadows.jpg",
+            "ToadsFactory.jpg", "MarioCircuit.jpg", "CoconutMall.jpg",
+            "DKSummit.jpg", "WariosGoldmine.jpg", "DaisyCircuit.jpg",
+            "GrumbleVolcano.jpg", "KoopaCape.jpg", "MapleTreeway.jpg",
+            "BowsersCastle.jpg", "DryDryRuins.jpg", "MoonViewHighway.jpg",
+            "RainbowRoad.jpg", "PeachBeach.jpg", "YoshiFalls.jpg",
+            "GhostValley2.jpg", "MarioRaceway.jpg", "SherbertLand.jpg",
+            "ShyGuyBeach.jpg", "DelfinoSquare.jpg", "WaluigiStadium.jpg",
+            "DesertHills.png", "BowsersCastle3.jpg", "DKJungleParkway.jpg",
+            "GCNMarioCircuit.jpg", "MarioCircuit3.jpg", "PeachGardens.jpg",
+            "DK-Mountain.jpg", "BowsersCastle.jpg" ]
         
         mapChoices = random.choices(mapList, k=9)
         return mapChoices

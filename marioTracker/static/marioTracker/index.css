@@ -56,11 +56,11 @@ body{
 
 .slideshow-container {
     max-width: 100%;
-    position: absolute;
+    position: relative;
     margin: auto;
 }
 
-.slides {
+.mySlides {
     display: none;
 }
 

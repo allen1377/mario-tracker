@@ -1,3 +1,4 @@
+alert("start");
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -25,8 +26,9 @@ function showSlides(n){
     for(i = 0; i < dots.length; i++){
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    index = slideIndex - 1;
+    slides[index].style.display = " block";
+    dots[index].className += " active";
 
 }
 
