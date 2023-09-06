@@ -2,11 +2,11 @@
 
 <html>
     <head>
+        <meta name="viewport" content="width-service-width", initial-scale="1">
         {% load static %}
-        <script type="text/javascript" src="{% static 'marioTracker/map.js' %}"></script>
         <link type="stylesheet" src="{% static 'marioTracker/index.css' %}">
     </head>
-    <body>
+    <body id="gen-body">
         <div class = "slideshow-container">
 
             <div class = "mySlides fade">
@@ -63,14 +63,10 @@
                 <div class="text">Caption Text</div>
             </div>
 
-            <a class="prev" onclick="plusSlides(-1)">some</a>
-            <a class="next" onclick="plusSlides(1)">some else</a>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
         <br>
-
-        <div style="text-align: center;">
-            <span class="dot" onclick="currentSlide(1)"></span>
-        </div>
-        
+        <script type="text/javascript" src="{% static 'marioTracker/js/map.js' %}"></script>
     </body>
 </html>
