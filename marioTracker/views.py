@@ -55,7 +55,7 @@ class DisplayMapView(generic.ListView):
             "RainbowRoad.jpg", "PeachBeach.jpg", "YoshiFalls.jpg",
             "GhostValley2.jpg", "MarioRaceway.jpg", "SherbertLand.jpg",
             "ShyGuyBeach.jpg", "DelfinoSquare.jpg", "WaluigiStadium.jpg",
-            "DesertHills.png", "BowsersCastle3.jpg", "DKJungleParkway.jpg",
+            "DesertHills.jpg", "BowsersCastle3.jpg", "DKJungleParkway.jpg",
             "GCNMarioCircuit.jpg", "MarioCircuit3.jpg", "PeachGardens.jpg",
             "DK-Mountain.jpg", "BowsersCastle.jpg" ]
         

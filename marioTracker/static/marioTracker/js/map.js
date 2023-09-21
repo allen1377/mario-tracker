@@ -25,3 +25,19 @@ function showSlides(n){
     slides[index].style.display = "block";
 }
 
+// Add an event listener to execute code when the DOM is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.getElementsByClassName("text");
+    for (var i = 0; i < elements.length; i++) {
+        let text = elements[i].innerText;
+        console.log(text);
+        let modifiedText = text.substring(0, text.indexOf("."));
+        console.log(modifiedText);
+        elements[i].innerText = modifiedText;
+    }
+});
+
+
+
+
+

@@ -2,71 +2,74 @@
 
 <html>
     <head>
-        <meta name="viewport" content="width-service-width", initial-scale="1">
+        <meta name="viewport" content="width-service-width", initial-scale="1.0">
         {% load static %}
-        <link type="stylesheet" src="{% static 'marioTracker/index.css' %}">
+        <link rel="stylesheet" href="{% static 'marioTracker/mapGen.css' %}">
     </head>
-    <body id="gen-body">
+    <body>
         <div class = "slideshow-container">
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 1 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.0 %}">
-                <div class="text">Caption Text</div>
+                <img 
+                    srcset="{% static '/marioTracker/images/'|add:map_list.0 %}, {% static '/mario-tracker/images/wide' | add:map_list.0 %}"
+                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 100vw"
+                    alt="{{ map_list.0 }}"
+                >
+                <div class="text"> {{map_list.0}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 2 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.1 %}">
-                <div class="text">Caption Text2</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.1 %}">
+                <div class="text">{{map_list.1}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 3 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.2 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.2 %}">
+                <div class="text">{{map_list.2}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 4 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.3 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.3 %}">
+                <div class="text">{{map_list.3}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 5 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.4 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.4 %}">
+                <div class="text">{{map_list.4}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 6 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.5 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.5 %}">
+                <div class="text">{{map_list.5}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 7 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.6 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.6 %}">
+                <div class="text">{{map_list.6}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 8 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.7 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.7 %}">
+                <div class="text">{{map_list.7}}</div>
             </div>
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 9 / {{ map_list|length }}</div>
-                <img src = "{% static '/marioTracker/images/'|add:map_list.8 %}">
-                <div class="text">Caption Text</div>
+                <img src = "{% static '/marioTracker/images/wide'|add:map_list.8 %}">
+                <div class="text">{{map_list.8}}</div>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
             <a class="next" onclick="plusSlides(1)">&#10095;</a>
         </div>
-        <br>
         <script type="text/javascript" src="{% static 'marioTracker/js/map.js' %}"></script>
     </body>
 </html>
