@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <meta name="viewport" content="width-service-width", initial-scale="1.0">
+        <meta name="viewport" content="width=service-width, initial-scale=1.0">
         {% load static %}
         <link rel="stylesheet" href="{% static 'marioTracker/mapGen.css' %}">
     </head>
@@ -11,11 +11,11 @@
 
             <div class = "mySlides fade">
                 <div class="numbertext"> 1 / {{ map_list|length }}</div>
-                <img 
-                    srcset="{% static '/marioTracker/images/'|add:map_list.0 %}, {% static '/mario-tracker/images/wide' | add:map_list.0 %}"
-                    sizes="(max-width: 768px) 90vw, (max-width: 1024px) 100vw"
-                    alt="{{ map_list.0 }}"
-                >
+                <picture>
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.0 %}">
+                    <source media="(max-width:1440px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.0 %}">
+                    <img src="{% static 'marioTracker/images/'|add:map_list.0 %}" alt="{{ map_list.0 }}">
+                </picture>
                 <div class="text"> {{map_list.0}}</div>
             </div>
 
