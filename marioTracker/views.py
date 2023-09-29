@@ -59,6 +59,6 @@ class DisplayMapView(generic.ListView):
             "GCNMarioCircuit.jpg", "MarioCircuit3.jpg", "PeachGardens.jpg",
             "DK-Mountain.jpg", "BowsersCastle.jpg" ]
         
-        mapChoices = random.choices(mapList, k=9)
+        mapChoices = random.sample(mapList, k=9)
         return mapChoices
             
