@@ -38,7 +38,7 @@ html, body {
     margin: 0 5%;
 }
 
-.prev, .next {
+.next {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -59,8 +59,8 @@ html, body {
     border-radius: 3px 0 0 3px;
 }
 
-.prev {
-    left: 0;
+.next:hover {
+    content: ;
 }
 
 .prev:hover, .next:hover {
@@ -126,6 +126,7 @@ html, body {
     from {opacity: 0.4}
     to {opacity: 1}
 }
+
 
 
 
