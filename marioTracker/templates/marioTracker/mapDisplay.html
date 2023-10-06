@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <meta name="viewport" content="width=service-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% load static %}
         <link rel="stylesheet" href="{% static 'marioTracker/mapGen.css' %}">
     </head>
@@ -10,97 +10,150 @@
         <div class = "slideshow-container">
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 1 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.0 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.0 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.0 %}" alt="{{ map_list.0 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.0 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.0 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.0 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL"> {{map_list.0}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.0 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 2 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.1 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.1 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.1 %}" alt="{{ map_list.1 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.1 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.1 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.1 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL">{{map_list.1}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.1 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 3 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.2 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.2 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.2 %}" alt="{{ map_list.2 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.2 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.2 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.2 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL">{{map_list.2}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.2 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 4 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.3 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.3 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.3 %}" alt="{{ map_list.3 }}">
-                </picture>                
-                <div class="text moveL">{{map_list.3}}</div>
-            </div>
-
-            <div class = "mySlides fade">
-                <div class="numbertext moveR"> 5 / {{ map_list|length }}</div>
-                <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.4 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.4 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.4 %}" alt="{{ map_list.4 }}">
-                </picture>                
-                <div class="text moveL">{{map_list.4}}</div>
-            </div>
-
-            <div class = "mySlides fade">
-                <div class="numbertext moveR"> 6 / {{ map_list|length }}</div>
-                <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.5 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.5 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.5 %}" alt="{{ map_list.5 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.3 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.3 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.3 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL">{{map_list.5}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.3 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 7 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.6 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.6 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.6 %}" alt="{{ map_list.6 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.4 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.4 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.4 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL">{{map_list.6}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.4 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 8 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.7 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.7 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.7 %}" alt="{{ map_list.7 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.5 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.5 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.5 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL">{{map_list.7}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.5 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
             <div class = "mySlides fade">
-                <div class="numbertext moveR"> 9 / {{ map_list|length }}</div>
+                <div class="numbertext moveR"> 1 / {{ mapTexts|length }}</div>
                 <picture>
-                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:map_list.8 %}">
-                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:map_list.8 %}">
-                    <img src="{% static 'marioTracker/images/'|add:map_list.8 %}" alt="{{ map_list.8 }}">
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.6 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.6 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.6 %}" alt="{{ 0 }}">
                 </picture>
-                <div class="text moveL">{{map_list.8}}</div>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.6 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
             </div>
 
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class = "mySlides fade">
+                <div class="numbertext moveR"> 8 / {{ mapTexts|length }}</div>
+                <picture>
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.7 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.7 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.7 %}" alt="{{ 0 }}">
+                </picture>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.7 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
+            </div>
+
+            <div class = "mySlides fade">
+                <div class="numbertext moveR"> 9 / {{ mapTexts|length }}</div>
+                <picture>
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.8 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.8 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.8 %}" alt="{{ 0 }}">
+                </picture>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.8 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
+            </div>
+
+            <div class = "mySlides fade">
+                <div class="numbertext moveR"> 9 / {{ mapTexts|length }}</div>
+                <picture>
+                    <source media="(max-width:465px)" srcset="{% static 'marioTracker/images/'|add:mapChoices.9 %}">
+                    <source media="(max-width:2000px)" srcset="{% static 'marioTracker/images/wide'|add:mapChoices.9 %}">
+                    <img src="{% static 'marioTracker/images/'|add:mapChoices.9 %}" alt="{{ 0 }}">
+                </picture>
+                {% if mapTexts %}
+                    <div class="text moveL"> {{ mapTexts.9 }}</div>
+                {% else %}
+                    <div class="text moveL"> No Map Text</div>
+                {% endif %}
+            </div>
+            
+            <a class="next" onmouseover="mouseOver(this, 'Next')" onmouseout="mouseOver(this, '&#10095;')" onclick="plusSlides(1)">&#10095;</a>
+            <a class="skip" onmouseover="mouseOver(this, 'Skip')" onmouseout="mouseOut(this, 'X')" onclick="skipSlides(1)">X</a>
+            <a class="finish" onmouseover="mouseOver(this, 'Finish')" onmouseout="mouseOver(this, 'Finish')" href="{% url 'marioTracker:map' %}">Finish</a>
         </div>
         <script type="text/javascript" src="{% static 'marioTracker/js/map.js' %}"></script>
+        <script type="text/javascript" src="{% static 'marioTracker/js/chgText.js' %}"></script>
     </body>
 </html>

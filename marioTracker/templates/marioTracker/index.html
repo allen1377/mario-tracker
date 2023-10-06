@@ -6,24 +6,23 @@
     <link rel="stylesheet" href="{% static 'marioTracker/index.css' %}">
 {% endblock %}
 
-{% block nav %}
-    <nav class = "navbar">
-        <ul class= "nav-links">
-            {% for link, urlParam in zipped_List %}
-                <li class="nav-item"><a href="{% url urlParam %}"><b>{{ link }}</b></a></li>
-            {% endfor %}
-        </ul>
-    </nav>
+{% block header %}
+    <header class = "header">
+        <h1>Title</h1>
+        <nav class = "navbar">
+            <ul class= "nav-links">
+                {% for link, urlParam in zipped_List %}
+                    <li class="nav-item"><a href="{% url urlParam %}"><b>{{ link }}</b></a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </header>
 {% endblock %}
 
 {% block content %}
-    {% if index_list %}
-        <ul>
-            {% for player in index_list %}
-                <li><a href="{% url 'marioTracker:detail' player.id %}">{{ player.firstname }}</a></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-            <p> No players yet BOSO</p>
-    {% endif %}
+    <div class="cloud">
+        <div class="bumps"></div>
+        <div class="bumps"></div>
+        <div class="bumps"></div>
+    </div>
 {% endblock %}

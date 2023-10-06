@@ -3,7 +3,7 @@ import datetime
 from django.urls import reverse
 from django.utils import timezone
 
-from .models import Players, Wins
+from .models import Players, Wins, Map
 
 # Create your tests here.
 
@@ -16,6 +16,10 @@ def create_win(winner):
 def create_mock_wins(wins, winner_id):
      for x in range(wins):
           create_win(winner_id)
+
+
+class mapTest(TestCase):
+     def maps():
           
 
 class PlayersIndexViewTexts(TestCase):

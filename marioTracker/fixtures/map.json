@@ -1,0 +1,258 @@
+[
+    {
+        "model": "marioTracker.map",
+        "pk": 1,
+        "fields": {
+            "imageURL": "LuigiCircuit.jpg",
+            "mapName": "Luigi Circuit"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 2,
+        "fields": {
+            "imageURL": "MushroomGorge.jpg",
+            "mapName": "Mushroom Gorge"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 3,
+        "fields": {
+            "imageURL": "MooMooMeadows.jpg",
+            "mapName": "Moo Moo Meadows"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 4,
+        "fields": {
+            "imageURL": "ToadsFactory.jpg",
+            "mapName": "Toads Factory"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 5,
+        "fields": {
+            "imageURL": "MarioCircuit.jpg",
+            "mapName": "Mario Circuit (Wii)"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 6,
+        "fields": {
+            "imageURL": "CoconutMall.jpg",
+            "mapName": "Coconut Mall"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 7,
+        "fields": {
+            "imageURL": "DKSummit.jpg",
+            "mapName": "DK Summit"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 8,
+        "fields": {
+            "imageURL": "WariosGoldmine.jpg",
+            "mapName": "Warios Goldmine"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 9,
+        "fields": {
+            "imageURL": "DaisyCircuit.jpg",
+            "mapName": "Daisy Circuit"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 10,
+        "fields": {
+            "imageURL": "GrumbleVolcano.jpg",
+            "mapName": "Grumble Volcano"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 11,
+        "fields": {
+            "imageURL": "KoopaCape.jpg",
+            "mapName": "Koopa Cape"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 12,
+        "fields": {
+            "imageURL": "MapleTreeway.jpg",
+            "mapName": "Maple Treeway"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 13,
+        "fields": {
+            "imageURL": "BowsersCastleN64.jpg",
+            "mapName": "Bowser's Castle (N64)"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 14,
+        "fields": {
+            "imageURL": "DryDryRuins.jpg",
+            "mapName": "Dry Dry Ruins"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 15,
+        "fields": {
+            "imageURL": "MoonViewHighway.jpg",
+            "mapName": "MoonView Highway"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 16,
+        "fields": {
+            "imageURL": "RainbowRoad.jpg",
+            "mapName": "Rainbow Road"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 17,
+        "fields": {
+            "imageURL": "PeachBeach.jpg",
+            "mapName": "Peach Beach"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 18,
+        "fields": {
+            "imageURL": "YoshiFalls.jpg",
+            "mapName": "Yoshi Falls"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 19,
+        "fields": {
+            "imageURL": "GhostValley2.jpg",
+            "mapName": "Ghost Valley 2"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 20,
+        "fields": {
+            "imageURL": "MarioRaceway.jpg",
+            "mapName": "Mario Raceway"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 21,
+        "fields": {
+            "imageURL": "SherbertLand.jpg",
+            "mapName": "Sherbert Land"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 22,
+        "fields": {
+            "imageURL": "ShyGuyBeach.jpg",
+            "mapName": "Shy Guy Beach"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 23,
+        "fields": {
+            "imageURL": "DelfinoSquare.jpg",
+            "mapName": "Delfino Square"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 24,
+        "fields": {
+            "imageURL": "WaluigiStadium.jpg",
+            "mapName": "Waluigi Stadium"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 25,
+        "fields": {
+            "imageURL": "DesertHills.jpg",
+            "mapName": "Desert Hills"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 26,
+        "fields": {
+            "imageURL": "BowsersCastle3.jpg",
+            "mapName": "Bowsers Castle 3"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 27,
+        "fields": {
+            "imageURL": "DKJungleParkway.jpg",
+            "mapName": "D.K.'s Jungle Parkway"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 28,
+        "fields": {
+            "imageURL": "GCNMarioCircuit.jpg",
+            "mapName": "Mario Circuit (GCN)"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 29,
+        "fields": {
+            "imageURL": "MarioCircuit3.jpg",
+            "mapName": "Mario Circuit 3"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 30,
+        "fields": {
+            "imageURL": "PeachGardens.jpg",
+            "mapName": "Peach Gardens"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 31,
+        "fields": {
+            "imageURL": "DK-Mountain.jpg",
+            "mapName": "DK Mountain"
+        }
+    },
+    {
+        "model": "marioTracker.map",
+        "pk": 32,
+        "fields": {
+            "imageURL": "BowsersCastle.jpg",
+            "mapName": "Bowser's Castle (Wii)"
+        }
+    }
+]

@@ -38,7 +38,7 @@ html, body {
     margin: 0 5%;
 }
 
-.next {
+.next, .skip, .finish {
     cursor: pointer;
     position: absolute;
     top: 50%;
@@ -54,16 +54,16 @@ html, body {
     user-select: none;
 }
 
-.next {
+.next, .finish {
     right: 0;
     border-radius: 3px 0 0 3px;
 }
 
-.next:hover {
-    content: ;
+.finish {
+    display: none;
 }
 
-.prev:hover, .next:hover {
+.skip:hover, .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 

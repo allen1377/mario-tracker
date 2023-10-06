@@ -1,3 +1,4 @@
+from typing import Any
 from django.db import models
 
 # Create your models here.
@@ -21,3 +22,7 @@ class Wins(models.Model):
 
     def __str__(self):
         return self.date.strftime("%m/%d/%Y, %H:%M:%S") + ", " + self.winner.__str__()
+    
+class Map(models.Model):
+    imageURL = models.CharField(max_length=50)
+    mapName = models.CharField(max_length=50)

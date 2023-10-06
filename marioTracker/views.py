@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 
-from .models import Players
+from .models import Players, Map
 
 # Create your views here.
 class MapView(generic.ListView):
@@ -43,22 +43,44 @@ class DisplayMapView(generic.ListView):
     context_object_name = "map_list"
 
     def get_queryset(self) -> QuerySet[Any]:
-        return self.randomMap()
+        numberList = self.randomNum()
+        return Map.objects.filter(pk__in = numberList)
     
-    def randomMap(self):
-        mapList = [
-             "LuigiCircuit.png", "MushroomGorge.jpg", "MooMooMeadows.jpg",
-            "ToadsFactory.jpg", "MarioCircuit.jpg", "CoconutMall.jpg",
-            "DKSummit.jpg", "WariosGoldmine.jpg", "DaisyCircuit.jpg",
-            "GrumbleVolcano.jpg", "KoopaCape.jpg", "MapleTreeway.jpg",
-            "BowsersCastle.jpg", "DryDryRuins.jpg", "MoonViewHighway.jpg",
-            "RainbowRoad.jpg", "PeachBeach.jpg", "YoshiFalls.jpg",
-            "GhostValley2.jpg", "MarioRaceway.jpg", "SherbertLand.jpg",
-            "ShyGuyBeach.jpg", "DelfinoSquare.jpg", "WaluigiStadium.jpg",
-            "DesertHills.jpg", "BowsersCastle3.jpg", "DKJungleParkway.jpg",
-            "GCNMarioCircuit.jpg", "MarioCircuit3.jpg", "PeachGardens.jpg",
-            "DK-Mountain.jpg", "BowsersCastle.jpg" ]
-        
-        mapChoices = random.sample(mapList, k=9)
-        return mapChoices
-            
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+
+        print(context)
+        mapChoices = self.getMapChoices(context)
+        mapTexts = self.getMapTexts(context)
+
+        context['mapChoices'] = mapChoices
+        context['mapTexts'] = mapTexts
+
+        return context
+    
+    def randomNum(self):
+        randomNumbers = list()
+        numbers = list(range(1,32))
+        randomNumbers = random.sample(numbers, k=10)
+
+        return randomNumbers
+    
+    def getMapChoices(self, context):
+        maps = context.get("object_list")
+        mapsURL = list()
+        print("Keys: ", context.keys())
+        print("\nMaps: ", maps)
+        for map in maps:
+            print("Fields: ", map.imageURL)
+            mapsURL.append(map.imageURL)
+
+        return mapsURL
+    
+    def getMapTexts(self, context):
+        maps = context.get("object_list")
+        mapsText = list()
+        for map in maps:
+            print("Texts:", map.mapName)
+            mapsText.append(map.mapName)
+
+        return mapsText

@@ -1,41 +1,49 @@
-let slideIndex = 1;
+let slideIndex = 0;
+let skipAmount = 0;
+let mapNumber = 1;
 showSlides(slideIndex);
 
 function plusSlides(n){
+    mapNumber += n;
     showSlides(slideIndex += n);
 }
 
-function currentSlides(n){
-    showSlides(slideIndex = n);
+function skipSlides(n){
+    skipAmountCheck(skipAmount += n);
+    mapNumber -= n;
+    plusSlides(n);
+}
+
+function skipAmountCheck(n){
+    if(n == 2){
+        let skipElement = document.getElementsByClassName("skip");
+        skipElement[0].style.display = "none";
+    }
 }
 
 function showSlides(n){
     let i;
     let slides = document.getElementsByClassName("mySlides");
-    if (n > slides.length){
-        slideIndex = 1;
+    let mapNumText = document.getElementsByClassName("numbertext");
+    if (mapNumber == 8){
+        console.log(n);
+        nextElem = document.getElementsByClassName("next");
+        nextElem[0].style.display = "none";
+        skipElem = document.getElementsByClassName("finish");
+        skipElem[0].style.display = "block";
     }
-    if(n < 1){
+    if(n < 0){
         slideIndex = slides.length;
     }
     for(i = 0; i < slides.length; i++){
         slides[i].style.display = "none";
     }
-    let index = slideIndex - 1;
+    let index = slideIndex;
     slides[index].style.display = "block";
+    mapNumText[index].textContent = "Map " + mapNumber;
+    
 }
 
-// Add an event listener to execute code when the DOM is loaded
-document.addEventListener("DOMContentLoaded", function() {
-    var elements = document.getElementsByClassName("text");
-    for (var i = 0; i < elements.length; i++) {
-        let text = elements[i].innerText;
-        console.log(text);
-        let modifiedText = text.substring(0, text.indexOf("."));
-        console.log(modifiedText);
-        elements[i].innerText = modifiedText;
-    }
-});
 
 
 
