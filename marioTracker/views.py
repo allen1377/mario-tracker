@@ -30,7 +30,6 @@ class customIndexView(generic.ListView):
         zipped_List = zip(nav_links_list, nav_urls_list)
         context["zipped_List"] = zipped_List
 
-        print(context)
         return context
 
 class DetailView(generic.DetailView):
@@ -49,7 +48,6 @@ class DisplayMapView(generic.ListView):
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
 
-        print(context)
         mapChoices = self.getMapChoices(context)
         mapTexts = self.getMapTexts(context)
 
@@ -71,7 +69,6 @@ class DisplayMapView(generic.ListView):
         print("Keys: ", context.keys())
         print("\nMaps: ", maps)
         for map in maps:
-            print("Fields: ", map.imageURL)
             mapsURL.append(map.imageURL)
 
         return mapsURL
@@ -80,7 +77,6 @@ class DisplayMapView(generic.ListView):
         maps = context.get("object_list")
         mapsText = list()
         for map in maps:
-            print("Texts:", map.mapName)
             mapsText.append(map.mapName)
 
         return mapsText

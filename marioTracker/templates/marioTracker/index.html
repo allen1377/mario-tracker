@@ -8,11 +8,18 @@
 
 {% block header %}
     <header class = "header">
-        <h1>Title</h1>
         <nav class = "navbar">
             <ul class= "nav-links">
                 {% for link, urlParam in zipped_List %}
-                    <li class="nav-item"><a href="{% url urlParam %}"><b>{{ link }}</b></a></li>
+                    <div class="tinyCloud">
+                        <div class="tinyBump"></div>
+                        <div class="tinyBump"></div>
+                        <div class="tinyBump"></div>
+                        <div class="tinyBump"></div>
+                        <div class="tinyBump"></div>
+                        <div class="tinyBump"></div>
+                        <li class="nav-item"><a href="{% url urlParam %}"><b>{{ link }}</b></a></li>
+                    </div>
                 {% endfor %}
             </ul>
         </nav>
@@ -20,9 +27,35 @@
 {% endblock %}
 
 {% block content %}
-    <div class="cloud">
-        <div class="bumps"></div>
-        <div class="bumps"></div>
-        <div class="bumps"></div>
+    <div class ="heroSection">
+        <div class="cloud">
+            <div class="largerBumps">
+            </div>
+            <div class="largerBumps">
+            </div>
+            <div class="largerBumps">
+            </div>
+            <div class="largerBumps">
+            </div>
+            <div class="largerBumps">
+            </div>
+            <div class="largerBumps">
+            </div>
+            <div class="cloudText">
+                Map Randomizer
+            </div>
+        </div>
+        <div class="city">
+            <div class="buildings">
+                <div class="tallBuilding"></div>
+                <div class="mediumBuilding"></div>
+                <div class="tallBuilding"></div>
+                <div class="mediumBuilding"></div>
+                <div class="tallBuilding"></div>
+            </div>
+            <div class="kart1"></div>
+            <div class="street"></div>
+        </div>
     </div>
+
 {% endblock %}
