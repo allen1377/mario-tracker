@@ -3,13 +3,14 @@
 }
 
 #body {
-   background-color: #080F21;
+   background-image: linear-gradient(black 15%, #080F21 40%);
    display: flex;
    flex-direction: column;
    height: 100vh;
    width: 100vw;
    margin: 0;
    padding: 0;
+   overflow: hidden;
 }
 
 .header {
@@ -135,6 +136,7 @@
     font-family: Comic Sans MS;
     font-weight: bold;
     color: black;
+    text-align: center;
 }
 
 .largerBumps {
@@ -187,23 +189,43 @@
     border-radius: 45%;
 }
 
+.button {
+    margin-top: 250px;
+    width: 30%;
+    max-width: 300px;
+    height: 10%;
+    max-height: 200px;
+    margin-bottom: 1%;
+    border-radius: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.712), 0 6px 20px rgba(0, 0, 0, 0.788);
+    background-color: rgba(224, 224, 224, 0.829);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button span {
+    text-align: center;
+    font-size: 40px;
+    font-family: Sans MS;
+}
+
 .city {
-    outline: red dotted;
     height: 30%;
     width: 100%;
     position: relative;
     display: flex;
+    justify-content: center;
 }
 
 .buildings {
     display: flex;
-    outline: 2px solid green;
     width: 100%;
     height: 90%;
     position: relative;
     top: 0%;
-    justify-content: space-between;
-    align-items:baseline;
+    justify-content: space-around;
+    align-items: flex-end;
 }
 
 .tallBuilding {
@@ -211,28 +233,247 @@
     height: 100%;
     width: 10%;
     background-color: #030711;
+    outline: rgb(0, 0, 0) solid 1px;
+}
+
+.glassTall {
+    height: 10%;
+    width: 20%;
+    outline: rgb(26, 26, 26) solid 1px;
+    position: absolute;
+    background-image: linear-gradient(to bottom right, rgb(12, 6, 29) 20%, rgb(43, 43, 43), rgb(12, 6, 29) 22%, rgb(41, 41, 41) 43%, rgb(12, 6, 29) 44%, rgb(17, 17, 17) 65%, rgb(12, 6, 29) 66%);
+}
+
+.glassTall:nth-child(1) {
+    left: 15%;
+    top: 10%;
+}
+
+.glassTall:nth-child(2) {
+    right: 15%;
+    top: 10%;
+}
+
+.glassTall:nth-child(3) {
+    left: 15%;
+    top: 30%;
+}
+
+.glassTall:nth-child(4) {
+    right: 15%;
+    top: 30%;
+}
+
+.glassTall:nth-child(5) {
+    left: 15%;
+    top: 50%;
+}
+
+.glassTall:nth-child(6) {
+    right: 15%;
+    top: 50%;
+}
+
+.glassTall:nth-child(7) {
+    left: 15%;
+    top: 70%;
+}
+
+.glassTall:nth-child(8) {
+    right: 15%;
+    top: 70%;
 }
 
 .mediumBuilding {
     height: 70%;
     width: 15%;
     background-color: #030711;
+    outline: rgb(0, 0, 0) solid 1px;
+    position: relative;
+}
+
+.glassMedium {
+    height: 20%;
+    width: 20%;
+    outline: rgb(26, 26, 26) solid 1px;
+    position: absolute;
+    background-image: linear-gradient(to bottom right, rgb(12, 6, 29) 20%, rgb(27, 27, 27), rgb(12, 6, 29) 22%, rgb(17, 17, 17) 43%, rgb(12, 6, 29) 44%, rgb(17, 17, 17) 65%, rgb(12, 6, 29) 66%);
+}
+
+.glassMedium:nth-child(1) {
+    left: 15%;
+    top: 20%;
+}
+
+.glassMedium:nth-child(2) {
+    right: 15%;
+    top: 20%;
+}
+
+.glassMedium:nth-child(3) {
+    width: 70%;
+    bottom: 20%;
+    left: 15%;
 }
 
 .kart1 {
-    height: 20%;
-    width: 10%;
+    height: 131px;
+    width: 169px;
     position: absolute;
-    background-image: url();
+    bottom: 0;
+    z-index: 1;
+    animation: kartDriving 2s ease-out, kartRunning 0.5s 3s infinite;
+    display: flex;
+    justify-content: center;
+}
+
+.kart1 img {
+    background-size:contain;
+    max-height: 100%;
+    max-width: 100%;
+    position: relative;
+}
+
+.gas {
+    height: 20%;
+    aspect-ratio: 1/1;
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    border-radius: 50%;
+    display: flex;
+    animation: gasMovement 2s ease-out 0.5s infinite;
+}
+
+.circles {
+    position: absolute;
+    height: 40%;
+    aspect-ratio: 1/0.9;
+    background-color: rgb(160, 160, 160);
+    border-radius: 50%;
+    animation: exhaust 2s 0.5s infinite;
+}
+
+.circles:nth-child(1){
+    box-shadow: 2px 2px 3px 3px rgb(160, 160, 160);
+}
+
+.trafficLight {
+    width: 40px;
+    height: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pole {
+    background-color: #242424;
+    width: 25%;
+    height: 30%;
+    position: relative;
+}
+
+.trafficLight .body {
+    height: 70%;
+    width: 100%;
+    background-color: #02040a;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.light {
+    border-radius: 50%;
+    height: 33%;
+    aspect-ratio: 1/1;
+    background-color: green;
+    animation: lightGreen 0.5s forwards;
+}
+
+.light:nth-child(2) {
+    background-color: rgb(43, 43, 0);
+    top: 33%;
+    animation: lightYellow 1s 0.5s;
+}
+
+.light:nth-child(3) {
+    background-color: rgb(39, 1, 1);
+    bottom: 0%;
+    animation: lightRed 1s 1.5s forwards;
 }
 
 .street {
-    position: absolute;
     width: 100%;
     height: 10%;
-    outline: white;
     background-color: rgb(17, 17, 17);
-    outline-style: dotted;
     bottom: 0%;
+    position: absolute;
 }
 
+@keyframes kartRunning {
+    0%, 100% {
+        transform: translate(0);
+    }
+    50% {
+        transform: translateY(-1px);
+    }
+}
+
+@keyframes kartDriving {
+    0% {
+        transform: translateX(-50vw);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes playSprite {
+    to {
+        background-position: 0 -400px;
+    }
+}
+
+@keyframes exhaust {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes gasMovement {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes lightRed {
+    to {
+        background-color: red;
+    }
+}
+
+@keyframes lightYellow {
+    to {
+        background-color: yellow;
+    }
+}
+
+@keyframes lightGreen {
+    to {
+        background-color: rgb(0, 39, 0);
+    }
+}
