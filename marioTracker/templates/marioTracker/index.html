@@ -6,47 +6,34 @@
     <link rel="stylesheet" href="{% static 'marioTracker/index.css' %}">
 {% endblock %}
 
-{% block header %}
-    <header class = "header">
-        <nav class = "navbar">
-            <ul class= "nav-links">
-                {% for link, urlParam in zipped_List %}
-                    <div class="tinyCloud">
-                        <div class="tinyBump"></div>
-                        <div class="tinyBump"></div>
-                        <div class="tinyBump"></div>
-                        <div class="tinyBump"></div>
-                        <div class="tinyBump"></div>
-                        <div class="tinyBump"></div>
-                        <li class="nav-item"><a href="{% url urlParam %}"><b>{{ link }}</b></a></li>
-                    </div>
-                {% endfor %}
-            </ul>
-        </nav>
-    </header>
-{% endblock %}
-
 {% block content %}
     <div class ="heroSection">
-        <div class="cloud">
-            <div class="largerBumps">
-            </div>
-            <div class="largerBumps">
-            </div>
-            <div class="largerBumps">
-            </div>
-            <div class="largerBumps">
-            </div>
-            <div class="largerBumps">
-            </div>
-            <div class="largerBumps">
-            </div>
-            <div class="cloudText">
-                Map Randomizer
+        <div class="stars">
+            <div class="staticStar"></div>
+        </div>
+        <div class="clouds">
+            <div class="cloud">
+                <div class="largerBumps">
+                </div>
+                <div class="largerBumps">
+                </div>
+                <div class="largerBumps">
+                </div>
+                <div class="largerBumps">
+                </div>
+                <div class="largerBumps">
+                </div>
+                <div class="largerBumps">
+                </div>
+                <div class="cloudText">
+                    Map Randomizer
+                </div>
             </div>
         </div>
-        <div class="button">
-            <span>Start</span>
+        <div class="buttonArea">
+            <div class="button">
+                <span>Start</span>
+            </div>
         </div>
         <div class="city">
             <div class="buildings">

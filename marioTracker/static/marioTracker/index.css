@@ -3,7 +3,7 @@
 }
 
 #body {
-   background-image: linear-gradient(black 15%, #080F21 40%);
+   background-image: linear-gradient(black 15%, #060b18 40%, #080F21 50%);
    display: flex;
    flex-direction: column;
    height: 100vh;
@@ -13,109 +13,39 @@
    overflow: hidden;
 }
 
-.header {
-    height: 10%;
-    background-color: #080F21;
-    display: flex;
-    justify-content: space-between;
-}
-
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-    position: absolute;
-    padding-right: 10px;
-    background-color: transparent;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    width: inherit;
-}
-
-.nav-item a {
-    color: rgb(221, 152, 152);
-    padding: 10px 15px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.nav-item:hover a {
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-}
-
-.tinyCloud {
-    background-color: #AEB7B3;
-    height: 20%;
-    border-radius: 30%;
-    margin-right: 10px;
-    position: relative;
-}
-
-.tinyBump {
-    width: 20%;
-    aspect-ratio: 1/1;
-    border-radius: 40%;
-    background-color: #AEB7B3;
-    position: absolute;
-}
-
-.tinyBump:nth-child(1) {
-    width: 40%;
-    height: 60%;
-    left: 2%;
-    bottom: 60%;
-}
-
-.tinyBump:nth-child(2) {
-    width: 40%;
-    height: 60%;
-    right: 2%;
-    bottom: 60%;
-}
-
-.tinyBump:nth-child(3) {
-    width: 40%;
-    height: 60%;
-    right: 5%;
-    top: 70%;
-}
-
-.tinyBump:nth-child(4) {
-    width: 40%;
-    height: 60%;
-    top: 70%;
-    left: 5%;
-}
-
-.tinyBump:nth-child(5) {
-    width: 40%;
-    height: 60%;
-    right: 30%;
-    top: 80%;
-}
-
-.tinyBump:nth-child(6) {
-    width: 40%;
-    height: 60%;
-    right: 30%;
-    bottom: 80%;
-}
-
 .heroSection{
-    flex-grow: 1;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
-    min-height: 100%;
+}
+
+.stars {
+    height: 25%;
+    width: 100%;
+    outline: white dotted 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staticStar {
+    height: 1px;
+    width: 1px;
+    background-color: azure;
+    border-radius: 50%;
+    box-shadow: 5px 5px 2px 1px azure;
+}
+
+.clouds {
+    height: 25%;
+    width: 100%;
+    outline: gray dotted 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .cloud {
@@ -124,14 +54,10 @@
     background-color: #AEB7B3;
     border-radius: 100px;
     position: relative;
-    top: 10%;
 }
 
 .cloudText {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
     font-size: 55px;
     font-family: Comic Sans MS;
     font-weight: bold;
@@ -140,62 +66,28 @@
 }
 
 .largerBumps {
-    width: 35%;
+    width: 5%;
     aspect-ratio: 0.6/0.45;
     border-radius: 50%;
     position: absolute;
     background-color: #AEB7B3;
 }
 
-.largerBumps:nth-child(1){
-    height: 90%;
-    left: 10%;
-    top: 70%;
-    border-radius: 45%;
-}
-
-.largerBumps:nth-child(2) {
-    aspect-ratio: 1/0.55;
-    width: 35%;
-    left: 5%;
-    bottom: 65%;
-}
-
-.largerBumps:nth-child(3) {
-    width: 35%;
-    right: 5%;
-    bottom: 65%;
-    aspect-ratio: 1/0.55;
-}
-
-.largerBumps:nth-child(4) {
-    height: 90%;
-    right: 10%;
-    top: 65%;
-    border-radius: 45%;
-}
-
-.largerBumps:nth-child(5) {
-    right: 32%;
-    bottom: 80%;
-    border-radius: 40%;
-    aspect-ratio: 2.25/1.25;
-}
-
-.largerBumps:nth-child(6) {
-    height: 90%;
-    right: 33%;
-    top: 80%;
-    border-radius: 45%;
+.buttonArea {
+    height: 10%;
+    width: 100%;
+    outline: green dotted 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .button {
-    margin-top: 250px;
     width: 30%;
     max-width: 300px;
     height: 10%;
     max-height: 200px;
-    margin-bottom: 1%;
     border-radius: 10%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.712), 0 6px 20px rgba(0, 0, 0, 0.788);
     background-color: rgba(224, 224, 224, 0.829);
@@ -211,7 +103,7 @@
 }
 
 .city {
-    height: 30%;
+    height: 40%;
     width: 100%;
     position: relative;
     display: flex;
