@@ -16,11 +16,7 @@ def create_win(winner):
 def create_mock_wins(wins, winner_id):
      for x in range(wins):
           create_win(winner_id)
-
-
-class mapTest(TestCase):
-     def maps():
-          
+       
 
 class PlayersIndexViewTexts(TestCase):
     def test_no_players(self):

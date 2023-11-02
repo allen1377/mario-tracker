@@ -1,0 +1,54 @@
+{% extends 'marioTracker/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'marioTracker/statOrMap.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="cardsSpace">
+        <div class="card" id="racing">
+            <tag><h3>Check Stats</h3></tag>
+            <button class="choice">Ready</button>
+        </div>
+        <div class="card" id="stats">
+            <tag><h3>Ready To Race</h3></tag>
+            <button class="choice">Ready</button>
+        </div>
+    </div>
+
+    <div class="statSpace">
+        <div class="statBackground">
+
+            <!-- filtered_wins_template.html -->
+            <form method="get" class="horizontal-form">
+                <div class="form-row">
+                    <div class="form-field">
+                        {{ form.start_time }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.player }}
+                    </div>
+                    <div class="form-field">
+                        {{ form.end_time }}
+                    </div>
+                </div>
+                <button class="statSubmit" type="submit">Filter Wins</button>
+            </form>
+
+            <div class="records">
+                <ul>
+                    {% for win in wins %}
+                        <li>{{ win }}</li>
+                        <!-- Display other win details as needed -->
+                    {% empty %}
+                        <li>No wins found.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

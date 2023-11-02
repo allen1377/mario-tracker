@@ -6,7 +6,8 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 
-from .models import Players, Map
+from .utils.form import WinsFilterForm
+from .models import Players, Map, Wins
 
 # Create your views here.
 class MapView(generic.ListView):
@@ -80,3 +81,35 @@ class DisplayMapView(generic.ListView):
             mapsText.append(map.mapName)
 
         return mapsText
+    
+class StatsOrMapView(generic.ListView):
+    template_name = "marioTracker/statsOrMap.html"
+    context_object_name = "players_list"
+
+    def get_queryset(self):
+        return Map.objects.all()
+    
+def get_filtered_wins(request):
+    form = WinsFilterForm(request.GET)
+    wins = Wins.objects.all()
+    print(wins)
+
+    if form.is_valid():
+        start_time = form.cleaned_data.get('start_time')
+        end_time = form.cleaned_data.get('end_time')
+        player = form.cleaned_data.get('player')
+
+        if start_time and end_time:
+            wins = wins.filter(date__range=(start_time, end_time))
+            print(start_time, end_time)
+            print(wins)
+
+        if player:
+            wins = wins.filter(winner__firstname=player)
+            print(player)
+            print(wins)
+        print('fail')
+
+    return render(request, 'marioTracker/statsOrMap.html', {'form': form, 'wins': wins})
+
+    

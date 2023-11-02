@@ -11,28 +11,20 @@
         <div id="stars">
         </div>
         <div class="clouds">
+            <div class="cloud x2"></div>
+            <div class="cloud x3"></div>
             <div class="cloud">
-                <div class="largerBumps">
-                </div>
-                <div class="largerBumps">
-                </div>
-                <div class="largerBumps">
-                </div>
-                <div class="largerBumps">
-                </div>
-                <div class="largerBumps">
-                </div>
-                <div class="largerBumps">
-                </div>
                 <div class="cloudText">
-                    Map Randomizer
+                    Map <br>Randomizer
                 </div>
             </div>
+            <div class="cloud x4"></div>
+            <div class="cloud x5"></div>
         </div>
         <div class="buttonArea">
-            <div class="button">
-                <span>Start</span>
-            </div>
+            <button class="button">
+                <a href="{% url 'marioTracker:timeframe_view' %}">START</a>
+            </button>
         </div>
         <div class="city">
             <div class="buildings">
@@ -47,7 +39,6 @@
                     <div class="glassTall"></div>
                 </div>
                 <div class="mediumBuilding">
-                    <div class="glassMedium"></div>
                     <div class="glassMedium"></div>
                     <div class="glassMedium"></div>
                 </div>
@@ -72,7 +63,6 @@
                 <div class="mediumBuilding">
                     <div class="glassMedium"></div>
                     <div class="glassMedium"></div>
-                    <div class="glassMedium"></div>
                 </div>
                 <div class="tallBuilding">
                     <div class="glassTall"></div>
@@ -95,5 +85,6 @@
         </div>
     </div>
     <script type="text/javascript" src="{% static 'marioTracker/js/star.js' %}"></script>
+    <script type="text/javascript" src="{% static 'marioTracker/js/buildingAnimation.js' %}"></script>
 
 {% endblock %}

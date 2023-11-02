@@ -52,7 +52,7 @@
     width: 1px;
     background-color: azure;
     border-radius: 50%;
-    position: relative;
+    position: absolute;
     z-index: 1;
 }
 
@@ -60,7 +60,7 @@
     background-color: azure;
     height: 1px;
     width: 1px;
-    position: relative;
+    position: absolute;
 }
 
 .clouds {
@@ -73,28 +73,87 @@
 }
 
 .cloud {
-    height: 20%;
-    width: 60%;
+    height: 125px;
+    width: 450px;
     background-color: #AEB7B3;
-    border-radius: 100px;
+    border-radius: 200px;
     position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: rotateCloud 10s infinite;
+}
+
+.cloud:before, .cloud:after {
+    content: '';
+	position: absolute; 
+	background: #AEB7B3;
+	width: 250px; 
+    height: 210px;
+    top: -50px; 
+    left: 30px;
+	
+	border-radius: 50%;
+    transform: rotate(-10deg);
+    z-index: -1;
+}
+
+.cloud::after {
+    border-radius: 50%;
+    width: 225px;
+    height: 205px;
+    right: 25px;
+    left: auto;
+    top: -65px;
+}
+
+.x2 {
+    position: absolute;
+    z-index: -1;
+    transform: scale(0.40);
+    left: 10px;
+    top: 30%;
+    opacity: 0.6;
+    animation: moveCloud 40s linear infinite forwards;
+}
+
+.x3 {
+    position: absolute;
+    transform: scale(0.40);
+    right: 10px;
+    top: 35%;
+    opacity: 0.65;
+    animation: moveCloud2 33s linear infinite forwards;
+}
+
+.x4 {
+    position: absolute;
+    transform: scale(0.40);
+    right: 10px;
+    top: 22%;
+    opacity: 0.2;
+    animation: moveCloud2 53s linear infinite forwards;
+}
+
+.x5 {
+    position: absolute;
+    transform: scale(0.40);
+    left: 10px;
+    top: 24%;
+    opacity: 0.4;
+    animation: moveCloud 47s linear infinite forwards;
+    z-index: -1;
 }
 
 .cloudText {
     position: relative;
-    font-size: 55px;
-    font-family: Comic Sans MS;
+    font-size: 45px;
+    font-family: Comic sans ms;
     font-weight: bold;
     color: black;
     text-align: center;
-}
-
-.largerBumps {
-    width: 5%;
-    aspect-ratio: 0.6/0.45;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #AEB7B3;
+    z-index: 2;
 }
 
 .buttonArea {
@@ -107,23 +166,45 @@
     flex-direction: column;
 }
 
-.button {
-    width: 30%;
-    max-width: 300px;
-    height: 10%;
-    max-height: 200px;
-    border-radius: 10%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.712), 0 6px 20px rgba(0, 0, 0, 0.788);
-    background-color: rgba(224, 224, 224, 0.829);
+button {
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    cursor: pointer;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.button span {
+.button {
+    width: 30%;
+    max-width: 150px;
+    height: 60%;
+    max-height: 200px;
+    border-radius: 12%;
+    box-shadow: 0 4px 8px 0 rgba(100, 100, 100, 0.712), 0 6px 15px rgba(17, 16, 16, 0.788);
+    background-color: #AEB7B3;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Comic sans ms;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    color: rgb(255, 255, 255);
+    background-color: #AEB7B3;
+    box-shadow: 0 4px 8px 0 rgba(190, 188, 188, 0.712), 0 6px 15px rgba(17, 16, 16, 0.788);
+    font-weight: bolder;
+}
+
+.button a {
+    position: relative;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    font-size: 40px;
-    font-family: Sans MS;
+    padding: 5px;
+    text-decoration: none;
+    color: rgb(19, 19, 19);;
 }
 
 .city {
@@ -148,16 +229,17 @@
     position: relative;
     height: 100%;
     width: 10%;
-    background-color: #030711;
+    background-color: #01050f;
     outline: rgb(0, 0, 0) solid 1px;
 }
 
 .glassTall {
     height: 10%;
     width: 20%;
-    outline: rgb(26, 26, 26) solid 1px;
+    outline: rgb(0, 0, 0) solid 1px;
     position: absolute;
-    background-image: linear-gradient(to bottom right, rgb(12, 6, 29) 20%, rgb(43, 43, 43), rgb(12, 6, 29) 22%, rgb(41, 41, 41) 43%, rgb(12, 6, 29) 44%, rgb(17, 17, 17) 65%, rgb(12, 6, 29) 66%);
+    animation: windowAnimation infinite;
+    background-color: #020309;
 }
 
 .glassTall:nth-child(1) {
@@ -203,30 +285,26 @@
 .mediumBuilding {
     height: 70%;
     width: 15%;
-    background-color: #030711;
+    background-color: #01050f;
     outline: rgb(0, 0, 0) solid 1px;
     position: relative;
 }
 
 .glassMedium {
     height: 20%;
-    width: 20%;
-    outline: rgb(26, 26, 26) solid 1px;
+    width: 70%;
+    outline: rgb(0, 0, 0) solid 1px;
     position: absolute;
-    background-image: linear-gradient(to bottom right, rgb(12, 6, 29) 20%, rgb(27, 27, 27), rgb(12, 6, 29) 22%, rgb(17, 17, 17) 43%, rgb(12, 6, 29) 44%, rgb(17, 17, 17) 65%, rgb(12, 6, 29) 66%);
+    background-color: #020309;
 }
 
 .glassMedium:nth-child(1) {
     left: 15%;
     top: 20%;
+    width: 70%;
 }
 
 .glassMedium:nth-child(2) {
-    right: 15%;
-    top: 20%;
-}
-
-.glassMedium:nth-child(3) {
     width: 70%;
     bottom: 20%;
     left: 15%;
@@ -395,5 +473,50 @@
     }
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes windowAnimation {
+    5% {
+        background-color: #020309;
+    }
+    65% {
+        background-color: #020309;
+    }
+    70% {
+        background-color: rgb(201, 201, 115);
+    }
+    95% {
+        background-color: rgb(201, 201, 115);
+    }
+    100% {
+        background-color: #020309;
+    }
+}
+
+@keyframes moveCloud {
+    from {
+        transform: scale(0.4) translateX(250vw);
+    }
+    to {
+        transform: scale(0.4) translateX(-100vw);
+    }
+}
+
+@keyframes moveCloud2 {
+    from {
+        transform: scale(0.4) translateX(-250vw);
+    }
+    to {
+        transform: scale(0.4) translateX(100vw);
+    }
+}
+
+@keyframes rotateCloud {
+    33%{
+        transform: rotate(1deg) scale(1.05);
+    }
+    66%{
+        transform: rotate(-1deg) scale(0.95);
     }
 }

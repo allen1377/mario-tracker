@@ -1,0 +1,118 @@
+body{
+    overflow: hidden;
+    background-color: #000a21;
+}
+
+.cardsSpace {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    outline: whitesmoke dotted 1px;
+    margin-top: 20vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    background-color: rgb(193, 193, 193);
+    height: 100%;
+    width: 33%;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgb(1, 56, 78), 0 6px 10px rgb(0, 21, 58);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+tag {
+    position: relative;
+    width: 80%;
+    height: 33%;
+    outline: black dotted 1px;
+    background-color: #000a21;
+    border-radius: 5px;
+    display: flex;
+    flex-grow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+tag h3 {
+    outline: white dotted 1px;
+    font-size: 2em;
+    color: rgb(193, 193, 193);
+}
+
+.choice {
+    position: relative;
+    width: 20%;
+    height: 10%;
+    outline: black dotted 1px;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px 0 rgba(11, 11, 11, 0.712), 0 6px 7px rgba(10, 10, 10, 0.788);
+    background-color: rgb(193, 193, 193);
+}
+
+.choice, .card, .cardsSpace, tag, h3 {
+    display: none;
+}
+
+/* This is stat styling */
+.statSpace {
+    position: relative;
+    width: 100vw;
+    height: 70vh;
+    margin-top: 15vh;
+    outline: white dotted 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statBackground{
+    position: relative;
+    width: 70%;
+    height: 100%;
+    outline: black dotted 1px;
+    background-color: rgb(208, 244, 246);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.horizontal-form {
+    height: 20%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-row {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.horizontal-form .form-field {
+    margin-right: 10px; /* Add space between fields */
+}
+
+.statSubmit {
+    width: 15%;
+    border-radius: 5px;
+}
+
+.records {
+    width: 100%;
+    height: 80%;
+}
+
+/* Adjust the margins and other styles as needed */

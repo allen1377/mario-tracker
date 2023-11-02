@@ -44,7 +44,6 @@ function createMultMovingStars() {
 function createMovingStars(container, width, height) {
     const star = document.createElement('div');
     star.className = "dynamicStar";
-    star.style.backgroundColor = "Red";
     container.appendChild(star);
 
     let xCoord = randomNumber(width, 0);
@@ -53,6 +52,13 @@ function createMovingStars(container, width, height) {
     let speedX, speedY;
 
     let trailPositions = [];
+    let trails = [];
+
+    for(let i = 0; i < 7; i++){
+        let trail = createTrailElement();
+        trails.push(trail);
+        container.appendChild(trail);
+    }
 
     function createTrailElement() {
         let trail = document.createElement('div');
@@ -62,20 +68,23 @@ function createMovingStars(container, width, height) {
     }
 
     function updateTrailElements() {
-        const trail = createTrailElement(); 
-        console.log("UpdateTrailElements (B4): ", xCoord, yCoord, trail);
-        trail.style.left = xCoord - speedX + "px";
-        trail.style.top = yCoord - speedY + "px";
-        trailPositions.unshift({x: xCoord, y: yCoord, trail: trail});
+        trailPositions.unshift({x: xCoord, y: yCoord});
         if(trailPositions.length > 7)
-            container.removeChild(trailPositions.pop().trail);
+            trailPositions.pop();
+
+        for(let i = 0; i < trailPositions.length; i++){
+            const trail = trails[i];
+            const pos = trailPositions[i];
+
+            trail.style.left = pos.x + "px";
+            trail.style.top = pos.y + "px";
+        }
     }
 
     function updateTrailOpacity() {
         for(let i = 0; i < trailPositions.length; i++) {
-            const trailData = trailPositions[i];
-            //console.log("Iteration: ", i, ", Data: ", trailData.x, trailData.y, trailData.trail);
-            trailData.trail.style.opacity = 1;
+            const trail = trails[i];
+            trail.style.opacity = 1 - (i * 0.15);
         }
     }
 
@@ -89,22 +98,16 @@ function createMovingStars(container, width, height) {
             changeDirection = false;
         }
 
-        console.log("Speed x, y", speedX, speedY);
+        updateTrailElements();
+
         xCoord += speedX;
         yCoord += speedY;
 
-        console.log("after: ", xCoord, yCoord);
 
         star.style.left = xCoord + "px";
         star.style.top = yCoord + "px";
-        updateTrailElements();
 
         if (xCoord > width || xCoord < 0 || yCoord > height || yCoord < 0) {
-            alert("Threshold reached", animationID);
-            
-            for(let i = 0; i < trailPositions.length; i++){
-                container.removeChild(trailPositions[i].trail);
-            }
             trailPositions = [];
 
             xCoord = randomNumber(width, 0);
