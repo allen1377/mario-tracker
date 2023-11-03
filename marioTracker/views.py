@@ -91,10 +91,10 @@ class StatsOrMapView(generic.ListView):
     
 def get_filtered_wins(request):
     form = WinsFilterForm(request.GET)
-    wins = Wins.objects.all()
-    print(wins)
+    wins = []
 
     if form.is_valid():
+        wins = Wins.objects.all()
         start_time = form.cleaned_data.get('start_time')
         end_time = form.cleaned_data.get('end_time')
         player = form.cleaned_data.get('player')
@@ -108,7 +108,6 @@ def get_filtered_wins(request):
             wins = wins.filter(winner__firstname=player)
             print(player)
             print(wins)
-        print('fail')
 
     return render(request, 'marioTracker/statsOrMap.html', {'form': form, 'wins': wins})
 

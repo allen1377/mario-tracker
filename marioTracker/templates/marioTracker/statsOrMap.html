@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <div class="cardsSpace">
+    <div id="cardsSpace">
         <div class="card" id="racing">
             <tag><h3>Check Stats</h3></tag>
             <button class="choice">Ready</button>
@@ -17,10 +17,8 @@
             <tag><h3>Ready To Race</h3></tag>
             <button class="choice">Ready</button>
         </div>
-    </div>
 
-    <div class="statSpace">
-        <div class="statBackground">
+        <div id="statBackground">
 
             <!-- filtered_wins_template.html -->
             <form method="get" class="horizontal-form">
@@ -48,7 +46,11 @@
                     {% endfor %}
                 </ul>
             </div>
+            <button id="statReturn">
+                Return
+            </button>
         </div>
     </div>
 
+    <script type="text/javascript" src="{% static 'marioTracker/js/button.js' %}"></script>
 {% endblock %}

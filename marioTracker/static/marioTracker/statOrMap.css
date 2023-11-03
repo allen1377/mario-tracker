@@ -3,14 +3,14 @@ body{
     background-color: #000a21;
 }
 
-.cardsSpace {
+#cardsSpace {
     position: relative;
     width: 100vw;
-    height: 50vh;
+    height: 75vh;
     outline: whitesmoke dotted 1px;
-    margin-top: 20vh;
     display: flex;
     justify-content: space-around;
+    margin-top: 15vh;
 }
 
 .card {
@@ -25,6 +25,14 @@ body{
     align-items: center;
     justify-content: space-evenly;
 
+}
+
+.cardOneAnimation {
+    animation: cardOneAnimation 3s forwards;
+}
+
+.cardTwoAnimation {
+    animation: cardTwoAnimation 3s forwards;
 }
 
 tag {
@@ -56,23 +64,13 @@ tag h3 {
     background-color: rgb(193, 193, 193);
 }
 
-.choice, .card, .cardsSpace, tag, h3 {
+.choice, .card, tag, h3 {
     display: none;
 }
 
 /* This is stat styling */
-.statSpace {
-    position: relative;
-    width: 100vw;
-    height: 70vh;
-    margin-top: 15vh;
-    outline: white dotted 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.statBackground{
+#statBackground{
     position: relative;
     width: 70%;
     height: 100%;
@@ -83,6 +81,10 @@ tag h3 {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}
+
+.statAnimated {
+    animation: statSpaceAnimation 4s;
 }
 
 .horizontal-form {
@@ -115,4 +117,44 @@ tag h3 {
     height: 80%;
 }
 
+.statReturn {
+    height: 5%;
+    width: auto;
+    border-radius: 5px;
+    color: #000a21;
+}
+
 /* Adjust the margins and other styles as needed */
+@keyframes statSpaceAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(0.8) translateX(-100vw) translateY(-5vh);
+    }
+}
+
+@keyframes cardOneAnimation {
+    from {
+        transform: translateX(75vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes cardTwoAnimation {
+    from {
+        transform: translateX(-75vw);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

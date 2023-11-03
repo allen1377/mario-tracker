@@ -1,5 +1,27 @@
 {% extends 'marioTracker/base.html' %}
 
+{% block style %}
+    <style>
+        .animated {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                animation: none;
+            }
+            .animate {
+                animation: bounce 1s infinite;
+            }
+            @keyframes bounce {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+    </style>
+{% endblock %}
+
 {% block content %}
     <p>MAP</p>
     <div class = "RaceContent">
@@ -14,4 +36,12 @@
             </a>
         </div>
     </div>
+    <button id="startButton">Start Animation</button>
+    <div class="animated" id="animatedBox"></div>
+    <script>
+        document.getElementById("startButton").addEventListener("click", function() {
+            document.getElementById("animatedBox").classList.add("animate");
+        });
+    </script>
+
 {% endblock %}
