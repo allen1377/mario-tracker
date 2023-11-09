@@ -1,14 +1,19 @@
-buttonElement = document.getElementById("statReturn");
+statButton = document.getElementById("statReturn");
+toStatsButton = document.getElementById("stat");
+raceButton = document.getElementById("race");
+
 
 function statReturn(){
-    statSpace = document.getElementById("statBackground");
-    cardOne = document.getElementById("racing");
-    cardTwo = document.getElementById("stats");
+    let statSpace = document.getElementById("statBackground");
+    let cardOne = document.getElementById("racing");
+    let cardTwo = document.getElementById("stats");
 
     statSpace.classList.remove("statAnimated");
     cardOne.classList.remove("cardOneAnimation");
     cardTwo.classList.remove("cardTwoAnimation");
-    // This will remove the class if it's already added.
+    cardOne.classList.remove("cardOneAnimation2");
+    statSpace.classList.remove("statAnimated2");
+    cardTwo.classList.remove("cardTwoAnimation2");
 
     // Adding a small delay to re-trigger the animation
     setTimeout(function() {
@@ -17,11 +22,125 @@ function statReturn(){
         cardTwo.classList.add("cardTwoAnimation");
     }, 100);
 
-    statSpace.addEventListener("animationend", function(){
+    function handleAnimationEnd() {
         statSpace.style.display = "none";
-        cardOne.style.display = "block";
-        cardTwo.style.display = "block";
+        cardOne.style.display = "flex";
+        cardTwo.style.display = "flex";
+
+        setDisplayFlexRecursive(cardOne);
+        setDisplayFlexRecursive(cardTwo);
+
+        statSpace.removeEventListener("animationend", handleAnimationEnd);
+    }
+
+    statSpace.addEventListener("animationend", handleAnimationEnd);
+}
+
+function playerReturn(){
+    let statSpace = document.getElementById("statBackground");
+    let cardOne = document.getElementById("racing");
+    let cardTwo = document.getElementById("stats");
+
+    statSpace.classList.remove("statAnimated");
+    cardOne.classList.remove("cardOneAnimation");
+    cardTwo.classList.remove("cardTwoAnimation");
+    cardOne.classList.remove("cardOneAnimation2");
+    statSpace.classList.remove("statAnimated2");
+    cardTwo.classList.remove("cardTwoAnimation2");
+
+    // Adding a small delay to re-trigger the animation
+    setTimeout(function() {
+        statSpace.classList.add("statAnimated");
+        cardOne.classList.add("cardOneAnimation");
+        cardTwo.classList.add("cardTwoAnimation");
+    }, 100);
+
+    function handleAnimationEnd() {
+        statSpace.style.display = "none";
+        cardOne.style.display = "flex";
+        cardTwo.style.display = "flex";
+
+        setDisplayFlexRecursive(cardOne);
+        setDisplayFlexRecursive(cardTwo);
+
+        statSpace.removeEventListener("animationend", handleAnimationEnd);
+    }
+
+    statSpace.addEventListener("animationend", handleAnimationEnd);
+}
+
+function setDisplayFlexRecursive(element) {
+    // Set the current element to display as flex
+    element.style.display = "flex";
+
+    // Iterate through each child element and call the function recursively
+    Array.from(element.children).forEach(function(child) {
+        setDisplayFlexRecursive(child); // Recursively call for grandchildren and further descendants
     });
 }
 
-buttonElement.addEventListener("click", statReturn);
+function toStatFunction(){
+    let statSpace = document.getElementById("statBackground");
+    let cardOne = document.getElementById("racing");
+    let cardTwo = document.getElementById("stats");
+
+    cardOne.classList.remove("cardOneAnimation2");
+    statSpace.classList.remove("statAnimated2");
+    cardTwo.classList.remove("cardTwoAnimation2");
+    statSpace.classList.remove("statAnimated");
+    cardOne.classList.remove("cardOneAnimation");
+    cardTwo.classList.remove("cardTwoAnimation");
+
+    setTimeout(function() {
+        statSpace.classList.add("statAnimated2");
+        cardOne.classList.add("cardOneAnimation2");
+        cardTwo.classList.add("cardTwoAnimation2");
+    }, 100);
+
+    function handleAnimationEnd(){
+        statSpace.style.display = "flex";
+        cardOne.style.display = "none";
+        cardTwo.style.display = "none";
+
+        setDisplayFlexRecursive(statSpace);
+
+        cardTwo.removeEventListener("animationend", handleAnimationEnd);
+    }
+    
+    cardTwo.addEventListener("animationend", handleAnimationEnd);
+}
+
+function toPlayerFunction(){
+    let raceSpace = document.getElementById("raceBackground");
+    let cardOne = document.getElementById("racing");
+    let cardTwo = document.getElementById("stats");
+
+    cardOne.classList.remove("cardOneAnimation2");
+    raceSpace.classList.remove("statAnimated2");
+    cardTwo.classList.remove("cardTwoAnimation2");
+    raceSpace.classList.remove("statAnimated");
+    cardOne.classList.remove("cardOneAnimation");
+    cardTwo.classList.remove("cardTwoAnimation");
+
+    setTimeout(function() {
+        raceSpace.classList.add("statAnimated2");
+        cardOne.classList.add("cardOneAnimation2");
+        cardTwo.classList.add("cardTwoAnimation2");
+    }, 100);
+
+    function handleAnimationEnd(){
+        raceSpace.style.display = "flex";
+        cardOne.style.display = "none";
+        cardTwo.style.display = "none";
+
+        setDisplayFlexRecursive(raceSpace);
+
+        cardTwo.removeEventListener("animationend", handleAnimationEnd);
+    }
+    
+    cardTwo.addEventListener("animationend", handleAnimationEnd);
+}
+
+statButton.addEventListener("click", statReturn);
+toStatsButton.addEventListener("click", toStatFunction);
+raceButton.addEventListener("click", toPlayerFunction);

@@ -11,29 +11,20 @@
     <div id="cardsSpace">
         <div class="card" id="racing">
             <tag><h3>Check Stats</h3></tag>
-            <button class="choice">Ready</button>
+            <button id="stat" class="choice">Ready</button>
         </div>
         <div class="card" id="stats">
             <tag><h3>Ready To Race</h3></tag>
-            <button class="choice">Ready</button>
+            <button id="race" class="choice">Ready</button>
         </div>
 
         <div id="statBackground">
 
             <!-- filtered_wins_template.html -->
-            <form method="get" class="horizontal-form">
-                <div class="form-row">
-                    <div class="form-field">
-                        {{ form.start_time }}
-                    </div>
-                    <div class="form-field">
-                        {{ form.player }}
-                    </div>
-                    <div class="form-field">
-                        {{ form.end_time }}
-                    </div>
-                </div>
-                <button class="statSubmit" type="submit">Filter Wins</button>
+            <form id="winRecordForm" method="post">
+                {% csrf_token %}
+                {{ win_record_form.as_p }}
+                <button type="submit" name="win_record_submit">Record Win</button>
             </form>
 
             <div class="records">
@@ -47,6 +38,27 @@
                 </ul>
             </div>
             <button id="statReturn">
+                Return
+            </button>
+        </div>
+
+        <div id="raceBackground">
+            <form id="playerSelectForm" method="post">
+                {% csrf_token %}
+                {{ player_select_form.as_p }}
+                <button type="submit" name="player_select_submit">Select Players</button>
+            </form>
+
+            <div class="new-player-section">
+                <h2>Create a New Player</h2>
+                <form id="playerCreateForm" method="post">
+                    {% csrf_token %}
+                    {{ player_creation_form.as_p }}
+                    <button type="submit" name="player_creation_submit">Create Player</button>
+                </form>
+            </div>
+            
+            <button id="playerReturn">
                 Return
             </button>
         </div>

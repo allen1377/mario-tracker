@@ -31,8 +31,16 @@ body{
     animation: cardOneAnimation 3s forwards;
 }
 
+.cardOneAnimation2 {
+    animation: cardOneAnimation2 3s forwards;
+}
+
 .cardTwoAnimation {
     animation: cardTwoAnimation 3s forwards;
+}
+
+.cardTwoAnimation2 {
+    animation: cardTwoAnimation2 3s forwards;
 }
 
 tag {
@@ -56,19 +64,26 @@ tag h3 {
 
 .choice {
     position: relative;
-    width: 20%;
-    height: 10%;
+    height: auto;
+    padding: 15px 32px;
     outline: black dotted 1px;
     border-radius: 5px;
     box-shadow: 0 4px 4px 0 rgba(11, 11, 11, 0.712), 0 6px 7px rgba(10, 10, 10, 0.788);
     background-color: rgb(193, 193, 193);
 }
-
-.choice, .card, tag, h3 {
-    display: none;
-}
-
 /* This is stat styling */
+#raceBackground {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    outline: black dotted 1px;
+    background-color: rgb(208, 244, 246);
+    border-radius: 5px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
 
 #statBackground{
     position: relative;
@@ -77,14 +92,18 @@ tag h3 {
     outline: black dotted 1px;
     background-color: rgb(208, 244, 246);
     border-radius: 5px;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
 }
 
 .statAnimated {
-    animation: statSpaceAnimation 4s;
+    animation: statSpaceAnimation 2s;
+}
+
+.statAnimated2 {
+    animation: statSpaceAnimation2 2s;
 }
 
 .horizontal-form {
@@ -128,33 +147,77 @@ tag h3 {
 @keyframes statSpaceAnimation {
     0% {
         transform: scale(1);
+        opacity: 1;
     }
     50% {
         transform: scale(1.1);
     }
     100% {
-        transform: scale(0.8) translateX(-100vw) translateY(-5vh);
+        transform: scale(1.1);
+        opacity: 0;
+    }
+}
+
+@keyframes statSpaceAnimation2 {
+    0% {
+        transform: scale(1.1);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
     }
 }
 
 @keyframes cardOneAnimation {
-    from {
+    0%{
         transform: translateX(75vw);
         opacity: 0;
     }
-    to {
+    50% {
+        transform: translateX(0vw);
+    }
+    100% {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
+@keyframes cardOneAnimation2 {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(75vw);
+        opacity: 0;
+    }
+}
+
 @keyframes cardTwoAnimation {
-    from {
+    0% {
         transform: translateX(-75vw);
         opacity: 0;
     }
-    to {
+    50% {
+        transform: translateX(0vw);
+    }
+    100% {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+
+@keyframes cardTwoAnimation2 {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-75vw);
+        opacity: 0;
     }
 }

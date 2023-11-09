@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
 
-from .utils.form import WinsFilterForm
+from .utils.form import WinsFilterForm, PlayerCreationForm, PlayerSelectForm 
 from .models import Players, Map, Wins
 
 # Create your views here.
@@ -90,25 +90,29 @@ class StatsOrMapView(generic.ListView):
         return Map.objects.all()
     
 def get_filtered_wins(request):
-    form = WinsFilterForm(request.GET)
-    wins = []
+    player_select_form = PlayerSelectForm()
+    player_creation_form = PlayerCreationForm()
+    win_record_form = WinsFilterForm()
 
-    if form.is_valid():
-        wins = Wins.objects.all()
-        start_time = form.cleaned_data.get('start_time')
-        end_time = form.cleaned_data.get('end_time')
-        player = form.cleaned_data.get('player')
+    if request.method == 'POST':
+        if 'player_select_submit' in request.POST:
+            player_select_form = PlayerSelectionForm(request.POST)
+            if player_select_form.is_valid():
+                # Process player selection form
 
-        if start_time and end_time:
-            wins = wins.filter(date__range=(start_time, end_time))
-            print(start_time, end_time)
-            print(wins)
+        if 'player_creation_submit' in request.POST:
+            player_creation_form = PlayerCreationForm(request.POST)
+            if player_creation_form.is_valid():
+                # Process player creation form
 
-        if player:
-            wins = wins.filter(winner__firstname=player)
-            print(player)
-            print(wins)
+        if 'win_record_submit' in request.POST:
+            win_record_form = WinRecordForm(request.POST)
+            if win_record_form.is_valid():
+                # Process win record form
+                # Save the win record to the database or perform required actions
 
-    return render(request, 'marioTracker/statsOrMap.html', {'form': form, 'wins': wins})
-
-    
+    return render(request, 'my_template.html', {
+        'player_select_form': player_select_form,
+        'player_creation_form': player_creation_form,
+        'win_record_form': win_record_form,
+    })
