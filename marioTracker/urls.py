@@ -11,5 +11,4 @@ urlpatterns = [
     path("genMap", views.DisplayMapView.as_view(), name="displayView"),
     path("statsOrMap", views.StatsOrMapView.as_view(), name="statsOrMap"),
     path('timeframe/', views.get_filtered_wins, name='timeframe_view'),
-    path('timeframe/playerCreation/', views.create_new_player, name='player_creation'),
 ]

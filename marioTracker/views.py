@@ -1,7 +1,7 @@
 import random
 from typing import Any, Dict
 from django.db.models.query import QuerySet
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views import generic
@@ -96,22 +96,54 @@ def get_filtered_wins(request):
 
     if request.method == 'POST':
         if 'player_select_submit' in request.POST:
-            player_select_form = PlayerSelectionForm(request.POST)
+            player_select_form = PlayerSelectForm(request.POST)
             if player_select_form.is_valid():
                 # Process player selection form
+                selectedPlayers = player_select_form.cleaned_data['players']
+
+                return redirect('DisplayMapView', player_ids=','.join(str(player.id) for player in selectedPlayers))
+
+
 
         if 'player_creation_submit' in request.POST:
             player_creation_form = PlayerCreationForm(request.POST)
             if player_creation_form.is_valid():
-                # Process player creation form
+                
+                new_player = player_creation_form.save(commit=False)
+
+                new_player.save()
+
+                return render(request, 'marioTracker/statsOrMap.html', {
+                    'player_select_form': PlayerSelectForm(),
+                    'player_creation_form': PlayerCreationForm(),
+                    'win_record_form': WinsFilterForm(),
+                    'success_message': 'Player has been created successfully.'
+                })
 
         if 'win_record_submit' in request.POST:
-            win_record_form = WinRecordForm(request.POST)
+            win_record_form = WinsFilterForm(request.POST)
             if win_record_form.is_valid():
                 # Process win record form
                 # Save the win record to the database or perform required actions
+                wins = Wins.objects.all()
+                startTime = win_record_form.get('start_time')
+                endTime = win_record_form.get('end_time')
+                player = win_record_form.cleaned_data.get('player')
 
-    return render(request, 'my_template.html', {
+                if startTime and endTime:
+                    wins = wins.filter(date__range=(startTime, endTime))
+                if player:
+                    wins = wins.filter(player__firstname=player)
+                
+                return render(request, 'marioTracker/statsOrMap.html', {
+                    'player_select_form': player_select_form,
+                    'player_creation_form': player_creation_form,
+                    'win_record_form': win_record_form,
+                    'wins': wins,
+                })
+
+
+    return render(request, 'marioTracker/statsOrMap.html', {
         'player_select_form': player_select_form,
         'player_creation_form': player_creation_form,
         'win_record_form': win_record_form,
