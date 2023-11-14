@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 class Players(models.Model):
+    id= models.AutoField(primary_key=True)
     firstname = models.CharField(max_length=200)
     lastname = models.CharField(max_length=200)
     races = models.IntegerField(default=0)
@@ -12,7 +13,7 @@ class Players(models.Model):
         return self.firstname
 
 class Wins(models.Model):
-    date = models.DateTimeField("Time won")
+    date = models.DateTimeField("Time won", auto_now_add=True)
     winner = models.ForeignKey(Players, null = False, on_delete=models.CASCADE)
 
     def __str__(self):

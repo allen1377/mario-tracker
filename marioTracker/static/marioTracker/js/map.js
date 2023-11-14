@@ -26,11 +26,10 @@ function showSlides(n){
     let slides = document.getElementsByClassName("mySlides");
     let mapNumText = document.getElementsByClassName("numbertext");
     if (mapNumber == 8){
-        console.log(n);
         nextElem = document.getElementsByClassName("next");
         nextElem[0].style.display = "none";
-        skipElem = document.getElementsByClassName("finish");
-        skipElem[0].style.display = "block";
+        skipElem = document.getElementById("finish");
+        skipElem.style.display = "block";
     }
     if(n < 0){
         slideIndex = slides.length;
