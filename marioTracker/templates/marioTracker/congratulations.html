@@ -9,7 +9,13 @@
 
     <body>
         <canvas id="canvas"></canvas>
-        <h2>{{ winner.firstname }}</h2>
-        <h3>Wins: {{ wins|length }}</h3>
+        <div class="overlay">
+            <h1>Congratulations Champion!</h1>
+            <h2>{{ winner.firstname }}</h2>
+            <h3>Wins: {{ wins|length }}</h3>
+        </div>
+
+
+        <script type="text/javascript" src="{% static 'marioTracker/js/fireworks.js' %}"></script>
     </body>
 </html>
