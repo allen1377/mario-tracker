@@ -3,19 +3,21 @@
 {% load static %}
 
 {% block style %}
+    <link rel="stylesheet" href="{% static 'django_select2/css/select2.css' %}">
     <link rel="stylesheet" href="{% static 'marioTracker/statOrMap.css' %}">
-{% endblock %}
+    {% endblock %}
 
 {% block content %}
 
     <div id="cardsSpace">
         <div class="card" id="racing">
-            <tag><h3>Check Stats</h3></tag>
-            <button id="stat" class="choice">Ready</button>
+            <h3>Check Stats</h3>
+            <button id="stat" class="choice">STATS</button>
         </div>
         <div class="card" id="stats">
-            <tag><h3>Ready To Race</h3></tag>
-            <button id="race" class="choice">Ready</button>
+            <h3>Ready To Race</h3>
+            <button id="race" class="choice">RACE
+            </button>
         </div>
 
         <div id="statBackground">
@@ -43,11 +45,18 @@
         </div>
 
         <div id="raceBackground">
-            <form id="playerSelectForm" method="post">
-                {% csrf_token %}
-                {{ player_select_form.as_p }}
-                <button type="submit" name="player_select_submit">Select Players</button>
-            </form>
+
+            <div class="selectPlayer">
+                <form id="playerSelectForm" method="post">
+                    {% csrf_token %}
+
+                    <!-- Use the PlayerSelectForm in the template -->
+                    {{ player_select_form.players }}
+                    
+                    <!-- Button to submit the form -->
+                    <button type="submit" name="player_select_submit">Select Players</button>
+                </form>
+            </div>
 
             <div class="new-player-section">
                 <h2>Create a New Player</h2>
@@ -64,5 +73,9 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="{% static 'django_select2/js/select2.full.js' %}"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/button.js' %}"></script>
+    <script type="text/javascript" src="{% static 'marioTracker/js/form.js' %}"></script>
+
 {% endblock %}

@@ -121,7 +121,15 @@ def get_filtered_wins(request):
             if player_select_form.is_valid():
                 # Process player selection form
                 selectedPlayers = player_select_form.cleaned_data['players']
-
+                
+                if len(selectedPlayers) not in {3, 4}:
+                    return render(request, 'marioTracker/statsOrMap.html', {
+                        'player_select_form': player_select_form,
+                        'player_creation_form': player_creation_form,
+                        'win_record_form': win_record_form,
+                        'error_message': 'Please select between 3 or 4 players.'
+                    })
+                
                 url = reverse('marioTracker:displayView') + f'?player_ids={",".join(str(player.id) for player in selectedPlayers)}'
                 return redirect(url)
 
@@ -146,8 +154,8 @@ def get_filtered_wins(request):
                 # Process win record form
                 # Save the win record to the database or perform required actions
                 wins = Wins.objects.all()
-                startTime = win_record_form.get('start_time')
-                endTime = win_record_form.get('end_time')
+                startTime = win_record_form.cleaned_data.get('start_time')
+                endTime = win_record_form.cleaned_data.get('end_time')
                 player = win_record_form.cleaned_data.get('player')
 
                 if startTime and endTime:
@@ -161,12 +169,12 @@ def get_filtered_wins(request):
                     'win_record_form': win_record_form,
                     'wins': wins,
                 })
-
-
+    print(Players.objects.all())
     return render(request, 'marioTracker/statsOrMap.html', {
         'player_select_form': player_select_form,
         'player_creation_form': player_creation_form,
         'win_record_form': win_record_form,
+        'players': Players.objects.all(),
     })
 
 def successView(request, winner):

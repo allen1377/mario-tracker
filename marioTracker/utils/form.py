@@ -1,4 +1,5 @@
 from django import forms
+from django_select2.forms import ModelSelect2MultipleWidget
 from ..models import Players
 
 class WinsFilterForm(forms.Form):
@@ -29,8 +30,13 @@ class SelectPlayersReqF(forms.ModelMultipleChoiceField):
         return cleaned_data
     
 class PlayerSelectForm(forms.Form):
-    players = SelectPlayersReqF(
+    players = forms.ModelMultipleChoiceField(
         queryset=Players.objects.all(),
-        widget=forms.CheckboxSelectMultiple,
-        required=True
+        widget = ModelSelect2MultipleWidget(
+            model=Players,
+            search_fields=['firstname__icontains'],
+
+        ),
+        required=True,
+        help_text='Select 3 or 4 players',
     )

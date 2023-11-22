@@ -2,7 +2,7 @@ window.addEventListener("resize", resizeCanvas, false);
 window.addEventListener("DOMContentLoaded", onLoad, false);
 
 var canvas, ctx, width, height, particles = [],
-    probability = 0.05, xPoint, yPoint;
+    probability = 0.02, xPoint, yPoint;
 
 function onLoad(){
     canvas = document.getElementById("canvas");
