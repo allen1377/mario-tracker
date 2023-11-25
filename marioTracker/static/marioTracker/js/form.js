@@ -1,3 +1,6 @@
 $(document).ready(function () {
-    $("#id_players").djangoSelect2();
+    $(".selectPlayerMultiple").select2({
+        width: '100%',
+    });
 });
+

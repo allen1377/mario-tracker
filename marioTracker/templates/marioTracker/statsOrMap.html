@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block style %}
-    <link rel="stylesheet" href="{% static 'django_select2/css/select2.css' %}">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'marioTracker/statOrMap.css' %}">
     {% endblock %}
 
@@ -47,14 +47,11 @@
         <div id="raceBackground">
 
             <div class="selectPlayer">
-                <form id="playerSelectForm" method="post">
-                    {% csrf_token %}
-
-                    <!-- Use the PlayerSelectForm in the template -->
-                    {{ player_select_form.players }}
-                    
-                    <!-- Button to submit the form -->
-                    <button type="submit" name="player_select_submit">Select Players</button>
+                <form id="selectPlayerForm" method="post" action="{% url 'marioTracker:statsOrMap' %}">
+                    <select class="selectPlayerMultiple" name="selectedPlayers" multiple="multiple">
+                        <option value="option1">Option 1</option>
+                        <option value="option2">Option 2</option>
+                    </select>
                 </form>
             </div>
 
@@ -74,8 +71,10 @@
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script type="text/javascript" src="{% static 'django_select2/js/select2.full.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/button.js' %}"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/form.js' %}"></script>
+
+
 
 {% endblock %}

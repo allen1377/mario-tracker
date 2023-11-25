@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django_select2.views import AutoResponseView
 
 urlpatterns = [
     path("marioTracker/", include("marioTracker.urls")),
     path('admin/', admin.site.urls),
+    path('select2/', include("django_select2.urls")),
 ]

@@ -1,5 +1,5 @@
 from django import forms
-from django_select2.forms import ModelSelect2MultipleWidget
+from django_select2 import forms as s2forms
 from ..models import Players
 
 class WinsFilterForm(forms.Form):
@@ -17,26 +17,17 @@ class PlayerCreationForm(forms.ModelForm):
         labels = {
             'favCharacter': 'Favorite Character'
         }
-
-
-class SelectPlayersReqF(forms.ModelMultipleChoiceField):
-    def clean(self, value):
-        cleaned_data = super().clean(value)
-        num_selected = len(cleaned_data)
-        if num_selected < 3:
-            raise forms.ValidationError("Please select at least three Players.")
-        if num_selected > 4: 
-            raise forms.ValidationError("Please select at most four Players.")
-        return cleaned_data
+    
     
 class PlayerSelectForm(forms.Form):
     players = forms.ModelMultipleChoiceField(
         queryset=Players.objects.all(),
-        widget = ModelSelect2MultipleWidget(
+        widget = s2forms.ModelSelect2MultipleWidget(
             model=Players,
             search_fields=['firstname__icontains'],
-
+            attrs={'class': 'form-control select2'}
         ),
-        required=True,
-        help_text='Select 3 or 4 players',
+        required = True,
+        help_text='Select 3 or 4 players'
     )
+
