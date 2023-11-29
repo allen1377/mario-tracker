@@ -10,7 +10,7 @@ class WinsFilterForm(forms.Form):
 class PlayerCreationForm(forms.ModelForm):
     class Meta:
         model = Players
-        fields = ['firstname', 'lastname', 'races', 'favCharacter']
+        fields = ['firstname', 'lastname', 'favCharacter']
         widgets = {
             'favCharacter': forms.TextInput(),
         }

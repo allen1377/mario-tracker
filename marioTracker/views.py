@@ -122,14 +122,6 @@ def get_filtered_wins(request):
                 # Process player selection form
                 selectedPlayers = player_select_form.cleaned_data['players']
                 
-                if len(selectedPlayers) not in {3, 4}:
-                    return render(request, 'marioTracker/statsOrMap.html', {
-                        'player_select_form': player_select_form,
-                        'player_creation_form': player_creation_form,
-                        'win_record_form': win_record_form,
-                        'error_message': 'Please select between 3 or 4 players.'
-                    })
-                
                 url = reverse('marioTracker:displayView') + f'?player_ids={",".join(str(player.id) for player in selectedPlayers)}'
                 return redirect(url)
 

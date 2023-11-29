@@ -48,10 +48,13 @@
 
             <div class="selectPlayer">
                 <form id="selectPlayerForm" method="post" action="{% url 'marioTracker:statsOrMap' %}">
+                    {% csrf_token %}
                     <select class="selectPlayerMultiple" name="selectedPlayers" multiple="multiple">
                         <option value="option1">Option 1</option>
                         <option value="option2">Option 2</option>
                     </select>
+
+                    <button id="ExistButton" type="submit" name="player_select_submit">Ready!</button>
                 </form>
             </div>
 
@@ -60,7 +63,7 @@
                 <form id="playerCreateForm" method="post">
                     {% csrf_token %}
                     {{ player_creation_form.as_p }}
-                    <button type="submit" name="player_creation_submit">Create Player</button>
+                    <button type="submit" name="player_creation_submit">Create</button>
                 </form>
             </div>
             
