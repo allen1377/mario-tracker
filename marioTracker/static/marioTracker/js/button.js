@@ -1,6 +1,7 @@
 statButton = document.getElementById("statReturn");
 toStatsButton = document.getElementById("stat");
-raceButton = document.getElementById("race");
+toRaceButton = document.getElementById("race");
+raceButton = document.getElementById("playerReturn");
 
 
 function statReturn(){
@@ -37,36 +38,36 @@ function statReturn(){
 }
 
 function playerReturn(){
-    let statSpace = document.getElementById("statBackground");
+    let raceSpace = document.getElementById("raceBackground");
     let cardOne = document.getElementById("racing");
     let cardTwo = document.getElementById("stats");
 
-    statSpace.classList.remove("statAnimated");
+    raceSpace.classList.remove("statAnimated");
     cardOne.classList.remove("cardOneAnimation");
     cardTwo.classList.remove("cardTwoAnimation");
     cardOne.classList.remove("cardOneAnimation2");
-    statSpace.classList.remove("statAnimated2");
+    raceSpace.classList.remove("statAnimated2");
     cardTwo.classList.remove("cardTwoAnimation2");
 
     // Adding a small delay to re-trigger the animation
     setTimeout(function() {
-        statSpace.classList.add("statAnimated");
+        raceSpace.classList.add("statAnimated");
         cardOne.classList.add("cardOneAnimation");
         cardTwo.classList.add("cardTwoAnimation");
     }, 100);
 
     function handleAnimationEnd() {
-        statSpace.style.display = "none";
+        raceSpace.style.display = "none";
         cardOne.style.display = "flex";
         cardTwo.style.display = "flex";
 
         setDisplayFlexRecursive(cardOne);
         setDisplayFlexRecursive(cardTwo);
 
-        statSpace.removeEventListener("animationend", handleAnimationEnd);
+        raceSpace.removeEventListener("animationend", handleAnimationEnd);
     }
 
-    statSpace.addEventListener("animationend", handleAnimationEnd);
+    raceSpace.addEventListener("animationend", handleAnimationEnd);
 }
 
 function setDisplayFlexRecursive(element) {
@@ -143,4 +144,5 @@ function toPlayerFunction(){
 
 statButton.addEventListener("click", statReturn);
 toStatsButton.addEventListener("click", toStatFunction);
-raceButton.addEventListener("click", toPlayerFunction);
+toRaceButton.addEventListener("click", toPlayerFunction);
+raceButton.addEventListener("click", playerReturn);

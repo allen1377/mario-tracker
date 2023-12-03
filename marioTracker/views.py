@@ -137,6 +137,7 @@ def get_filtered_wins(request):
                     'player_select_form': PlayerSelectForm(),
                     'player_creation_form': PlayerCreationForm(),
                     'win_record_form': WinsFilterForm(),
+                    'players': Players.objects.all(),
                     'success_message': 'Player has been created successfully.'
                 })
 
@@ -156,14 +157,13 @@ def get_filtered_wins(request):
                     wins = wins.filter(player__firstname=player)
                 
                 return render(request, 'marioTracker/statsOrMap.html', {
-                    'player_select_form': player_select_form,
                     'player_creation_form': player_creation_form,
                     'win_record_form': win_record_form,
                     'wins': wins,
+                    'players': Players.objects.all(),
                 })
     print(Players.objects.all())
     return render(request, 'marioTracker/statsOrMap.html', {
-        'player_select_form': player_select_form,
         'player_creation_form': player_creation_form,
         'win_record_form': win_record_form,
         'players': Players.objects.all(),

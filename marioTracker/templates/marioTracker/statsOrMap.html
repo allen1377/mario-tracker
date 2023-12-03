@@ -47,15 +47,24 @@
         <div id="raceBackground">
 
             <div class="selectPlayer">
+                <h2>Select Player</h2>
                 <form id="selectPlayerForm" method="post" action="{% url 'marioTracker:statsOrMap' %}">
                     {% csrf_token %}
                     <select class="selectPlayerMultiple" name="selectedPlayers" multiple="multiple">
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
+    
+                        {% for player in players %}
+                            <option value="{{player.id}}">{{ player.firstname}} {{ player.lastname }}</option>
+                        {% endfor %}
                     </select>
 
-                    <button id="ExistButton" type="submit" name="player_select_submit">Ready!</button>
+                    <button class="ExistButton" type="submit" name="player_select_submit">Ready!</button>
                 </form>
+            </div>
+
+            <div id="orDivider">
+                <div class="line"></div>
+                <h1>OR</h1>
+                <div class="line"></div>
             </div>
 
             <div class="new-player-section">
@@ -63,12 +72,12 @@
                 <form id="playerCreateForm" method="post">
                     {% csrf_token %}
                     {{ player_creation_form.as_p }}
-                    <button type="submit" name="player_creation_submit">Create</button>
+                    <button class="ExistButton" type="submit" name="player_creation_submit">Create</button>
                 </form>
             </div>
             
             <button id="playerReturn">
-                Return
+                &lt;
             </button>
         </div>
     </div>
