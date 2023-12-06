@@ -4,7 +4,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from django.views import generic
+from django.views import generic, View
 from django.utils import timezone
 from pytz import timezone as pytz_timezone
 
@@ -12,12 +12,14 @@ from .utils.form import WinsFilterForm, PlayerCreationForm, PlayerSelectForm
 from .models import Players, Map, Wins
 
 # Create your views here.
-class MapView(generic.ListView):
+class MapView(View):
     template_name = "marioTracker/map.html"
-    context_object_name = "players_list"
 
-    def get_queryset(self):
-        return Players.objects.all()
+    def post(self, request, *args, **kwargs):
+        selectedPlayers = request.POST.getlist('selectedPlayers')
+
+        url = reverse('marioTracker:displayView') + f'?selectedPlayers={",".join(selectedPlayers)}'
+        return redirect(url)
 
 class customIndexView(generic.ListView):
     template_name = "marioTracker/index.html"
@@ -40,68 +42,44 @@ class DetailView(generic.DetailView):
     context_object_name = "player"
     template_name = "marioTracker/details.html"
     
-class DisplayMapView(generic.ListView):
+class DisplayMapView(View):
     template_name = "marioTracker/mapDisplay.html"
-    context_object_name = "map_list"
 
-    def get_queryset(self) -> QuerySet[Any]:
+    def get(self, request, *args, **kwargs):
         numberList = self.randomNum()
-        return Map.objects.filter(pk__in = numberList)
+        maps = Map.objects.filter(pk__in=numberList)
+
+        mapChoices = [map.imageURL for map in maps]
+        mapTexts = [map.mapName for map in maps]
+
+        getIDs = request.GET.get('selectedPlayers', '')
+        idList = getIDs.split(',') if getIDs else []
+        selectedPlayers = get_list_or_404(Players, id__in=idList)
+
+        context = {
+            'mapChoices': mapChoices,
+            'mapTexts': mapTexts,
+            'selectedPlayers': selectedPlayers,
+        }
+
+        return render(request, self.template_name, context)
     
-    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
-        context = super().get_context_data(**kwargs)
+    def post(self, request, *args, **kwargs):
+        winnerID = request.POST.get('winner')
 
-        player_ids = self.request.GET.get('player_ids', '')
+        if winnerID:
+            player = get_object_or_404(Players, pk=winnerID)
+            player.races = player.races + 1
+            player.save()
+            Wins.objects.create(winner=player, date=timezone.now())
 
-        if player_ids:
-            player_ids = [int(player_id) for player_id in player_ids.split(',')]
-            players = get_list_or_404(Players, id__in=player_ids)
-            context['players'] = players
-
-        mapChoices = self.getMapChoices(context)
-        mapTexts = self.getMapTexts(context)
-
-        context['mapChoices'] = mapChoices
-        context['mapTexts'] = mapTexts
-
-        return context
+        url = reverse('marioTracker:congratsView', kwargs={'winner': player.id})
+        return redirect(url)
     
     def randomNum(self):
-        randomNumbers = list()
-        numbers = list(range(1,32))
-        randomNumbers = random.sample(numbers, k=10)
-
-        return randomNumbers
-    
-    def getMapChoices(self, context):
-        maps = context.get("object_list")
-        mapsURL = list()
-        print("Keys: ", context.keys())
-        print("\nMaps: ", maps)
-        for map in maps:
-            mapsURL.append(map.imageURL)
-
-        return mapsURL
-    
-    def getMapTexts(self, context):
-        maps = context.get("object_list")
-        mapsText = list()
-        for map in maps:
-            mapsText.append(map.mapName)
-
-        return mapsText
-
-    def post(self, request, *args, **kwargs):
-        winner_id = request.POST.get('winner')
-
-        if winner_id:
-            winner = get_object_or_404(Players, pk=winner_id)
-            winner.races = winner.races + 1;
-            winner.save()
-            Wins.objects.create(winner=winner, date=timezone.now())
-
-        url = reverse('marioTracker:congratsView', kwargs={'winner': winner.id})
-        return redirect(url)
+        randomNumbers = list(range(1, 32))
+        random.shuffle(randomNumbers)
+        return randomNumbers[:10]
     
 class StatsOrMapView(generic.ListView):
     template_name = "marioTracker/statsOrMap.html"
@@ -154,7 +132,7 @@ def get_filtered_wins(request):
                 if startTime and endTime:
                     wins = wins.filter(date__range=(startTime, endTime))
                 if player:
-                    wins = wins.filter(player__firstname=player)
+                    wins = wins.filter(winner__firstname=player)
                 
                 return render(request, 'marioTracker/statsOrMap.html', {
                     'player_creation_form': player_creation_form,

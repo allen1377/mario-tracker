@@ -25,11 +25,13 @@
             <!-- filtered_wins_template.html -->
             <form id="winRecordForm" method="post">
                 {% csrf_token %}
+                <div id="formRow">
                 {{ win_record_form.as_p }}
-                <button type="submit" name="win_record_submit">Record Win</button>
+                </div>
+                <button id="statFormButton" type="submit" name="win_record_submit">Submit</button>
             </form>
 
-            <div class="records">
+            <div id="records">
                 <ul>
                     {% for win in wins %}
                         <li>{{ win }}</li>
@@ -40,7 +42,7 @@
                 </ul>
             </div>
             <button id="statReturn">
-                Return
+                &lt;
             </button>
         </div>
 
@@ -48,7 +50,7 @@
 
             <div class="selectPlayer">
                 <h2>Select Player</h2>
-                <form id="selectPlayerForm" method="post" action="{% url 'marioTracker:statsOrMap' %}">
+                <form id="selectPlayerForm" method="post" action="{% url 'marioTracker:map' %}">
                     {% csrf_token %}
                     <select class="selectPlayerMultiple" name="selectedPlayers" multiple="multiple">
     
@@ -86,6 +88,7 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/button.js' %}"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/form.js' %}"></script>
+    <script type="text/javascript" src="{% static 'marioTracker/js/stats.js' %}"></script>
 
 
 

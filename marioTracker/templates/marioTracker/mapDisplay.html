@@ -159,7 +159,7 @@
                 {% csrf_token %}
                 <div class="button-container">
                     <div class="quadrant">
-                        {% for player in players|slice:"0:2" %}
+                        {% for player in selectedPlayers|slice:"0:2" %}
                             <button type="submit" class="contestant" name="winner" value="{{ player.id }}">
                                 {{ player.firstname }}
                             </button>
@@ -167,7 +167,7 @@
                     </div>
 
                     <div class="quadrant">
-                        {% for player in players|slice:"2:4" %}
+                        {% for player in selectedPlayers|slice:"2:4" %}
                             <button type="submit" class="contestant" name="winner" value="{{ player.id }}">
                                 {{ player.firstname }}
                             </button>

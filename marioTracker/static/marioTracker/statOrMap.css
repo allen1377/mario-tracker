@@ -180,6 +180,32 @@ form p {
     justify-content: flex-start;
 }
 
+#winRecordForm {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#formRow {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#winRecordForm p {
+    width: 30%;
+}
+
+#statFormButton {
+    padding: 8px 13px;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #000a21;
+    outline: whitesmoke 1px solid;
+    color: whitesmoke;
+    max-width: 80px;
+}
+
 .statAnimated {
     animation: statSpaceAnimation 2s;
 }
@@ -213,7 +239,7 @@ form p {
     border-radius: 5px;
 }
 
-.records {
+#records {
     width: 100%;
     height: 80%;
 }
@@ -225,7 +251,7 @@ form p {
     color: #000a21;
 }
 
-#playerReturn {
+#playerReturn, #statReturn{
     background-color: transparent;
     color: rgba(255, 255, 255, 0.74);
     border: rgb(240, 248, 255) 2px solid;
@@ -239,7 +265,7 @@ form p {
     transition: border-top 0.1s ease-in, border-right 0.1s 0.1s ease-in, color 1.3s ease-out, border-bottom 0.1s 0.2s ease-in, border-left 0.1s 0.3s ease-in;
 }
 
-#playerReturn:hover {
+#playerReturn:hover, #statReturn:hover {
     border-color: #000a21;
     color: #000a21;
 }

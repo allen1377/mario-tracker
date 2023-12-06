@@ -105,6 +105,9 @@ function toStatFunction(){
 
         setDisplayFlexRecursive(statSpace);
 
+        var recordArea = document.getElementById("records");
+        recordArea.innerText="";
+
         cardTwo.removeEventListener("animationend", handleAnimationEnd);
     }
     

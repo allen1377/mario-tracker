@@ -20,5 +20,6 @@ class Wins(models.Model):
         return f'Player: {self.winner.firstname} {self.winner.lastname} won! ({self.date})'
     
 class Map(models.Model):
+    id=models.AutoField(primary_key=True)
     imageURL = models.CharField(max_length=50)
     mapName = models.CharField(max_length=50)
