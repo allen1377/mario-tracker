@@ -2,7 +2,7 @@ import random
 from typing import Any, Dict
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.views import generic, View
 from django.utils import timezone
@@ -92,8 +92,10 @@ def get_filtered_wins(request):
     player_select_form = PlayerSelectForm()
     player_creation_form = PlayerCreationForm()
     win_record_form = WinsFilterForm()
+    print(request.POST)
 
     if request.method == 'POST':
+        action = request.POST.get('action', None)
         if 'player_select_submit' in request.POST:
             player_select_form = PlayerSelectForm(request.POST)
             if player_select_form.is_valid():
@@ -119,7 +121,7 @@ def get_filtered_wins(request):
                     'success_message': 'Player has been created successfully.'
                 })
 
-        if 'win_record_submit' in request.POST:
+        if action == 'win_record_submit':
             win_record_form = WinsFilterForm(request.POST)
             if win_record_form.is_valid():
                 # Process win record form
@@ -134,13 +136,8 @@ def get_filtered_wins(request):
                 if player:
                     wins = wins.filter(winner__firstname=player)
                 
-                return render(request, 'marioTracker/statsOrMap.html', {
-                    'player_creation_form': player_creation_form,
-                    'win_record_form': win_record_form,
-                    'wins': wins,
-                    'players': Players.objects.all(),
-                })
-    print(Players.objects.all())
+                winsData = [{'id': win.winner.id, 'winner': win.winner.firstname + " " + win.winner.lastname, 'date': win.date.strftime('%B %d, %Y')} for win in wins]
+                return JsonResponse({'wins': winsData, 'totalWins': len(wins)})
     return render(request, 'marioTracker/statsOrMap.html', {
         'player_creation_form': player_creation_form,
         'win_record_form': win_record_form,

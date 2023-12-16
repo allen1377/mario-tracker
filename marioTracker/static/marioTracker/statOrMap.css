@@ -8,7 +8,7 @@ body{
     width: 100vw;
     height: 75vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     margin-top: 15vh;
 }
 
@@ -184,6 +184,7 @@ form p {
     width: 100%;
     flex-direction: column;
     align-items: center;
+    height: 20%;
 }
 
 #formRow {
@@ -240,8 +241,53 @@ form p {
 }
 
 #records {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
     width: 100%;
     height: 80%;
+}
+
+#records th {
+    text-align: left;
+    font-size: 2em;
+    color: #000a21;
+    border-bottom: solid #000a21 1px;
+}
+
+#records table thead {
+    position: sticky;
+    top: 0;
+}
+
+#records th:nth-child(2), #records td:nth-child(2) {   
+    text-align: center;
+}
+
+#records td {
+    text-align: left;
+    vertical-align: top;
+    font-size: 19px;
+    max-height: 25px;
+    outline: solid black 1px;
+    height: 2px;
+    overflow: hidden;
+}
+
+#records table {
+    width: 85%;
+    border: transparent;
+    overflow-y: hidden;
+    table-layout: fixed;
+}
+
+#records table tbody {
+    overflow-y: auto;
+}
+
+#records h2 {
+    border-bottom: solid #000a21 1px;
 }
 
 .statReturn {
