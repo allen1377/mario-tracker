@@ -12,8 +12,14 @@ function randomNumber(max, min){
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function clearStars() {
+    const starsDiv = document.getElementById('stars');
+    starsDiv.innerHTML = '';
+}
+
 //create one star and use box-shadow to mimic multiple stars
 function createStaticStars(){
+    clearStars();
     let i = 0;
     const starsDiv = document.getElementById('stars');
     const height = starsDiv.clientHeight /2;
