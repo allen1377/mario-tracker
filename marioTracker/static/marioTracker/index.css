@@ -3,7 +3,7 @@
 }
 
 #body {
-   background-image: linear-gradient(black 15%, #060b18 40%, #080F21 50%);
+   background-image: linear-gradient(black 15%, #0f1a34 80%, #6f5628 98%);
    display: flex;
    flex-direction: column;
    height: 100vh;
@@ -112,7 +112,7 @@
     transform: scale(0.40);
     left: 10px;
     top: 30%;
-    opacity: 0.6;
+    opacity: 0.7;
     animation: moveCloud 40s linear infinite forwards;
 }
 
@@ -121,7 +121,7 @@
     transform: scale(0.40);
     right: 10px;
     top: 35%;
-    opacity: 0.65;
+    opacity: 0.85;
     animation: moveCloud2 33s linear infinite forwards;
 }
 
@@ -130,7 +130,7 @@
     transform: scale(0.40);
     right: 10px;
     top: 22%;
-    opacity: 0.2;
+    opacity: 0.3;
     animation: moveCloud2 53s linear infinite forwards;
 }
 
@@ -139,7 +139,7 @@
     transform: scale(0.40);
     left: 10px;
     top: 24%;
-    opacity: 0.4;
+    opacity: 0.45;
     animation: moveCloud 47s linear infinite forwards;
     z-index: -1;
 }
@@ -491,19 +491,21 @@ button {
 
 @keyframes moveCloud {
     from {
-        transform: scale(0.4) translateX(250vw);
+        transform: scale(0.4) translateX(170vw); /* Move just outside the viewport */
     }
     to {
-        transform: scale(0.4) translateX(-100vw);
+        transform: scale(0.4) translateX(-100vw); /* Move just inside the viewport */
+        opacity: 0; /* Ending opacity */
     }
 }
 
 @keyframes moveCloud2 {
     from {
-        transform: scale(0.4) translateX(-250vw);
+        transform: scale(0.4) translateX(-160vw);
     }
     to {
-        transform: scale(0.4) translateX(100vw);
+        transform: scale(0.4) translateX(32vw);
+        opacity: 0;
     }
 }
 
@@ -556,14 +558,12 @@ button {
     }
 
     .buildings > .tallBuilding:nth-child(1) {
-        background-color: lightblue;
         position: absolute;
         left: 0;
     }
     
     /* Select the second mediumBuilding directly inside .buildings */
     .buildings > .mediumBuilding:nth-child(2) {
-        background-color: lightcoral;
         position: absolute;
         right: 0;
         height: 50%;
@@ -572,13 +572,16 @@ button {
     
     /* Select the third tallBuilding directly inside .buildings */
     .buildings > .tallBuilding:nth-child(3) {
-        background-color: lightgreen;
-        display: none;
+        position: absolute;
+        left: 25%
     }
     
     /* Select the fourth trafficLight directly inside .buildings */
     .buildings > .trafficLight:nth-child(4) {
-        background-color: lightgoldenrodyellow;
+        position: absolute;
+        right: 30%;
+        height: 40%;
+        width: 35px;
     }
     
     /* Select the fifth mediumBuilding directly inside .buildings */
@@ -593,5 +596,8 @@ button {
         display: none;
     }
 
-
+    .kart1 {
+        height: 100px;
+        width: 115px;
+    }
 }

@@ -113,7 +113,7 @@ function createMovingStars(container, width, height) {
         star.style.left = xCoord + "px";
         star.style.top = yCoord + "px";
 
-        if (xCoord > width || xCoord < 0 || yCoord > height || yCoord < 0) {
+        if (xCoord > width - 10 || xCoord < 10 || yCoord > height - 10|| yCoord < 10) {
             trailPositions = [];
 
             xCoord = randomNumber(width, 0);
