@@ -89,9 +89,9 @@
     content: '';
 	position: absolute; 
 	background: #AEB7B3;
-	width: 250px; 
-    height: 210px;
-    top: -50px; 
+	width: 280px; 
+    height: 215px;
+    top: -55px; 
 	border-radius: 50%;
     transform: rotate(-10deg);
     z-index: -1;
@@ -102,8 +102,11 @@
     width: 225px;
     height: 205px;
     right: 25px;
-    left: auto;
     top: -65px;
+}
+
+.cloud::before {
+    left: 30px;
 }
 
 .x2 {
