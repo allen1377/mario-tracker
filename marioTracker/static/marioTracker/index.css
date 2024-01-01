@@ -25,7 +25,6 @@
 #stars {
     height: 25%;
     width: 100%;
-    outline: white dotted 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +65,6 @@
 .clouds {
     height: 25%;
     width: 100%;
-    outline: gray dotted 1px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,7 +158,6 @@
 .buttonArea {
     height: 10%;
     width: 100%;
-    outline: green dotted 1px;
     display: flex;
     justify-content: center;
     align-items: center;
