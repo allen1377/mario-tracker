@@ -22,8 +22,8 @@
             <div class="cloud x5"></div>
         </div>
         <div class="buttonArea">
-            <button class="button">
-                <a href="{% url 'marioTracker:timeframe_view' %}">START</a>
+            <button class="button" id="startButton">
+                <a href="{% url 'marioTracker:timeframe_view' %}" id="startLink">START</a>
             </button>
         </div>
         <div class="city">
@@ -75,7 +75,7 @@
                     <div class="glassTall"></div>
                 </div>
             </div>
-            <div class="kart1">
+            <div class="kart1" id="kart1">
                 <img src="{% static 'marioTracker/images/lui2.png' %}">
                 <div class="gas">
                     <div class="circles"></div>
@@ -86,5 +86,6 @@
     </div>
     <script type="text/javascript" src="{% static 'marioTracker/js/star.js' %}"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/buildingAnimation.js' %}"></script>
+    <script type="text/javascript" src="{% static 'marioTracker/js/kart.js' %}"></script>
 
 {% endblock %}
