@@ -1,15 +1,17 @@
-document.getElementById('startButton').addEventListener('click', function(event) {
-    var button = event.target;
-    var image = document.getElementsByClassName('kart1')[0];
+$(document).ready(function() {
+    $('#startButton').on('click', function(event) {
+        event.preventDefault();
 
-    //alert("Passed")
-    event.preventDefault();
+        var link = $('#startLink').attr('href');
+        var $image = $('#kart1');
 
-    image.style.animation = "kartLeaving 1.25s ease-out, kartRunning 0.5s 3s infinite";
+        $image.css('animation', 'kartLeaving 2s ease-out, kartRunning 0.5s 3s infinite');
 
-    image.addEventListener('animationend', function(e) {
-        if(e.animationName === "kartLeaving") {
-            window.location.href = button.getAttribute('data-href');
-        }
-    }, { once: true });
+        $image.on('animationend', function(e) {
+            if(e.originalEvent.animationName === "kartLeaving"){
+                window.location.href = link;
+                $image.css('animation', 'kartDriving 2s ease-out, kartRunning 0.5s 3s infinite');
+            }
+        });
+    });
 });
