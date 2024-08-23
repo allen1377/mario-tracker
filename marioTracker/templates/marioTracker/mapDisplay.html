@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% load static %}
         <link rel="stylesheet" href="{% static 'marioTracker/mapGen.css' %}">
+        <link rel="stylesheet" href="{}"
     </head>
     <body>
         <div id="slideshow-container">
@@ -154,6 +155,7 @@
             <button id="finish" onmouseover="mouseOver(this, 'Finish')" onmouseout="mouseOver(this, 'Finish')">Finish</button>
         </div>
         <div id="winner-container">
+            <!--
             <h1 id="title">Race Participants:</h1>
             <form method="post" action="{% url 'marioTracker:displayView' %}">
                 {% csrf_token %}
@@ -175,9 +177,20 @@
                     </div>
                 </div>
             </form>
+        -->
+
+            <div class="dropdown">
+                <button class="dropdown-toggle">Select an Option</button>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Option 1</a></li>
+                    <li><a href="#">Option 2</a></li>
+                    <li><a href="#">Option 3</a></li>
+                </ul>
+            </div>
         </div>
         <script type="text/javascript" src="{% static 'marioTracker/js/map.js' %}"></script>
         <script type="text/javascript" src="{% static 'marioTracker/js/chgText.js' %}"></script>
         <script type="text/javascript" src="{% static 'marioTracker/js/winner.js' %}"></script>
+        <script type="text/javascript" src="{% static 'marioTracker/js/form.js' %}"></script>
     </body>
 </html>
