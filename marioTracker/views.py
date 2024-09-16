@@ -12,6 +12,12 @@ from .utils.form import WinsFilterForm, PlayerCreationForm, PlayerSelectForm
 from .models import Players, Map, Wins
 
 # Create your views here.
+
+class testView(View):
+    template_name = "marioTracker/test.html"
+
+    def get(self, request):
+        return self.template_name
 class MapView(View):
     template_name = "marioTracker/map.html"
 

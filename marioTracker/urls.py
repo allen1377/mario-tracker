@@ -12,4 +12,5 @@ urlpatterns = [
     path("statsOrMap", views.StatsOrMapView.as_view(), name="statsOrMap"),
     path('timeframe/', views.get_filtered_wins, name='timeframe_view'),
     path('congrats/<str:winner>/', views.successView, name='congratsView'),
+    path('test', views.testView.as_view(), name="test")
 ]

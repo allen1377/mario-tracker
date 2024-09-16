@@ -304,6 +304,10 @@ button {
     left: 15%;
 }
 
+.kart1.leaving {
+    animation: kartLeaving 1.5s ease-out forwards;
+}
+
 .kart1 {
     height: 131px;
     width: 169px;

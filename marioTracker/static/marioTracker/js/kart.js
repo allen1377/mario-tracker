@@ -1,17 +1,23 @@
 $(document).ready(function() {
-    $('#startButton').on('click', function(event) {
-        event.preventDefault();
+    var $image = $('.kart1');
 
-        var link = $('#startLink').attr('href');
-        var $image = $('#kart1');
+    function startAnimation() {
+        $image.addClass('leaving');
 
-        $image.css('animation', 'kartLeaving 2s ease-out, kartRunning 0.5s 3s infinite');
-
-        $image.on('animationend', function(e) {
-            if(e.originalEvent.animationName === "kartLeaving"){
+        $image.one('animationend', function(e) {
+            if(e.originalEvent.animationName === 'kartLeaving') {
+                var link = $('#startLink').attr('href');
                 window.location.href = link;
-                $image.css('animation', 'kartDriving 2s ease-out, kartRunning 0.5s 3s infinite');
             }
         });
+    }
+
+     $('#startButton').on('click', function(event) {
+        event.preventDefault();
+        startAnimation();
     });
+
+    $(window).on('pageshow', function() {
+        $image.removeClass('leaving');
+    })
 });
