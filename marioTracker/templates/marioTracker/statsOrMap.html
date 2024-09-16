@@ -50,17 +50,14 @@
 
             <div class="selectPlayer">
                 <h2>Select Player</h2>
-                <form id="selectPlayerForm" method="post" action="{% url 'marioTracker:map' %}">
-                    {% csrf_token %}
-                    <select class="selectPlayerMultiple" name="selectedPlayers" multiple="multiple">
-    
+                <div class="dropdown">
+                    <button class="dropdown-toggle">Players</button>
+                    <ul class="dropdown-menu">
                         {% for player in players %}
-                            <option value="{{player.id}}">{{ player.firstname}} {{ player.lastname }}</option>
+                            <li><a href="#" class="dropdown-item" data-value="{{ player.value }}">{{ player.label }}</a></li>
                         {% endfor %}
-                    </select>
-
-                    <button class="ExistButton" type="submit" name="player_select_submit">Ready!</button>
-                </form>
+                    </ul>
+                </div>
             </div>
 
             <div id="orDivider">
@@ -82,6 +79,7 @@
                 &lt;
             </button>
         </div>
+
     </div>
     <script>
         var statsOrMapUrl = '{% url "marioTracker:statsOrMap" %}';
@@ -91,6 +89,7 @@
     <script type="text/javascript" src="{% static 'marioTracker/js/button.js' %}"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/form.js' %}"></script>
     <script type="text/javascript" src="{% static 'marioTracker/js/stats.js' %}"></script>
+    <script type="text/javascript" src="{% static 'marioTracker/js/dropDown.js' %}"></script>
 
 
 

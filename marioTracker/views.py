@@ -107,6 +107,7 @@ def get_filtered_wins(request):
             if player_select_form.is_valid():
                 # Process player selection form
                 selectedPlayers = player_select_form.cleaned_data['players']
+                print("List of selected Players", selectedPlayers)
                 
                 url = reverse('marioTracker:displayView') + f'?player_ids={",".join(str(player.id) for player in selectedPlayers)}'
                 return redirect(url)
