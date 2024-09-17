@@ -5,6 +5,7 @@
 {% block style %}
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'marioTracker/statOrMap.css' %}">
+    <link rel="stylesheet" href="{% static 'marioTracker/dropDown.css' %}">
     {% endblock %}
 
 {% block content %}
@@ -54,7 +55,7 @@
                     <button class="dropdown-toggle">Players</button>
                     <ul class="dropdown-menu">
                         {% for player in players %}
-                            <li><a href="#" class="dropdown-item" data-value="{{ player.value }}">{{ player.label }}</a></li>
+                            <li><a href="#" class="dropdown-item" data-value="{{ player.value }}">{{ player }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
