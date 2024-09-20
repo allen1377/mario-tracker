@@ -14,7 +14,7 @@ $(document).ready(function (){
     $(window).on('click', function(event){
         if(!$(event.target).closest('.dropdown').length){
             if ($('.dropdown-menu').hasClass('dropDownFlex')){
-                $('.downdown-menu').removeClass('dropDownFlex').addClass('dropDownHidden');
+                $('.dropdown-menu').removeClass('dropDownFlex').addClass('dropDownHidden');
             }
         }
     });
