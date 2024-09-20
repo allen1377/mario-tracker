@@ -72,7 +72,9 @@ function playerReturn(){
 
 function setDisplayFlexRecursive(element) {
     // Set the current element to display as flex
-    element.style.display = "flex";
+    if (!((element.matches('.dropdown-menu'))))
+        element.style.display = "flex";
+    
 
     // Iterate through each child element and call the function recursively
     Array.from(element.children).forEach(function(child) {

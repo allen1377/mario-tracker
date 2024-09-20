@@ -24,6 +24,15 @@
     z-index: 1;
 }
 
+.dropDownFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropDownHidden {
+    display: none;
+}
+
 .dropdown-menu li {
     list-style-type: none;
 }
