@@ -6,6 +6,7 @@
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'marioTracker/statOrMap.css' %}">
     <link rel="stylesheet" href="{% static 'marioTracker/dropDown.css' %}">
+    <link rel="stylesheet" href="{% static 'marioTracker/searchBar.css' %}">
     {% endblock %}
 
 {% block content %}
@@ -55,6 +56,9 @@
                     <button class="dropdown-toggle">Players</button>
                     <ul class="dropdown-menu">
                         <input type="text" id="searchBar" placeholder="Search By First or Last Name">
+                        <div id="selectedAreaBar">
+                            <div id="selectedPlayers"></div>
+                        </div>
                         {% for player in players %}
                             <li data-firstName="{{ player.firstname }}" data-lastName="{{ player.lastname }}" class="dropdown-item">
                                 {{ player.firstname }} {{player.lastname}}

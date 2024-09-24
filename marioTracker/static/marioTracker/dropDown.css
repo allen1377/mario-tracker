@@ -1,6 +1,8 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    width: 80%;
+    justify-content: center;
 }
 
 .dropdown-toggle {
@@ -9,6 +11,8 @@
     padding: 10px 20px;
     border: none;
     cursor: pointer;
+    width: 100%;
+    justify-content: center;
 }
 
 .dropdown-toggle:hover {

@@ -1,0 +1,5 @@
+#searchBar:focus-visible{
+    outline: none;
+    border-bottom: 2px #889293;
+    
+}
