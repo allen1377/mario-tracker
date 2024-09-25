@@ -24,13 +24,14 @@ $(document).ready(function() {
         if ($('#selectedPlayers').find(`[data-player="${fullName}"]`).length === 0){
             $('#selectedPlayers').append(`
                 <div class="selectedPlayer" data-player="${fullName}">
-                    "${fullName}" <span class="removePlayer">x</span>
+                    ${fullName} <span class="removePlayer">x</span>
                 </div>
             `);
         }
     });
 
-    $(document).on('click', '.removePlayer', function() {
+    $('.dropdown-menu').on('click', '.removePlayer', function() {
+        console.log("remove method");
         $(this).parent('.selectedPlayer').remove();
     });
 });

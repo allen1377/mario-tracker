@@ -44,14 +44,14 @@
     list-style-type: none;
 }
 
-.dropdown-menu li a {
+.dropdown-menu li {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-menu li a:hover {
+.dropdown-menu li:hover {
     background-color: #f1f1f1;
 }
 

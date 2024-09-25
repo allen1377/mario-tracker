@@ -1,5 +1,30 @@
 #searchBar:focus-visible{
-    outline: none;
-    border-bottom: 2px #889293;
-    
+    outline: 2px #889293;   
+}
+
+.removePlayer {
+    cursor: pointer;
+    padding: 0px 5px;
+    margin: 0px 0px 0px 5px;
+    width: auto;
+}
+
+.removePlayer:hover {
+    background-color: #cef2f4;
+    color: black;
+}
+
+#selectedPlayers {
+    display: flex;
+
+}
+
+.selectedPlayer {
+    border-radius: 5%;
+    background-color: #000a21;
+    margin: 2px 5px;
+    padding: 0px 0px 0px 10px;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
 }
