@@ -60,7 +60,7 @@
                             <div id="selectedPlayers"></div>
                         </div>
                         {% for player in players %}
-                            <li data-firstName="{{ player.firstname }}" data-lastName="{{ player.lastname }}" class="dropdown-item">
+                            <li data-id="{{ player.id }}" data-firstName="{{ player.firstname }}" data-lastName="{{ player.lastname }}" class="dropdown-item">
                                 {{ player.firstname }} {{player.lastname}}
                             </li>
                         {% endfor %}

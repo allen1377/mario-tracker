@@ -6,17 +6,20 @@
 }
 
 .dropdown-toggle {
-    background-color: #4CAF50;
+    background-color: #000a21;
     color: white;
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
     justify-content: center;
+    border-radius: 5px;
 }
 
 .dropdown-toggle:hover {
-    background-color: #3e8e41;
+    background-color: whitesmoke;
+    border: 1px solid #000a21;
+    color: black;
 }
 
 .dropdown-menu {
