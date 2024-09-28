@@ -51,7 +51,7 @@
         <div id="raceBackground">
 
             <div class="selectPlayer">
-                <h2>Select Player</h2>
+                <h2>Select 3-4 Players</h2>
                 <div class="dropdown">
                     <button class="dropdown-toggle">Players</button>
                     <ul class="dropdown-menu">
@@ -80,6 +80,7 @@
                     {% csrf_token %}
                     {{ player_creation_form.as_p }}
                     <button class="ExistButton" type="submit" name="player_creation_submit">Create</button>
+                    <button id="submitSelectedPlayers">Let's Race!</button>
                 </form>
             </div>
             

@@ -41,6 +41,7 @@ $(document).ready(function() {
         }
 
         console.log("after adding: ", selectedPlayerIds.length);
+
     });
 
     $('.dropdown-menu').on('click', '.removePlayer', function() {
@@ -54,4 +55,7 @@ $(document).ready(function() {
         console.log(selectedPlayerIds);
     });
 
+    function submitRacers(){
+        
+    }
 });
