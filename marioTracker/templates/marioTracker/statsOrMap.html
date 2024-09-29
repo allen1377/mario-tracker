@@ -80,10 +80,9 @@
                     {% csrf_token %}
                     {{ player_creation_form.as_p }}
                     <button class="ExistButton" type="submit" name="player_creation_submit">Create</button>
-                    <button id="submitSelectedPlayers">Let's Race!</button>
                 </form>
             </div>
-            
+            <button id="submitSelectedPlayers" class="dropDownHidden">Let's Race!</button>
             <button id="playerReturn">
                 &lt;
             </button>

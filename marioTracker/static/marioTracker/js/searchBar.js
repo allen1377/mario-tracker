@@ -24,8 +24,6 @@ $(document).ready(function() {
         var playerID = $(this).data('id');
         var fullName = firstName + ' ' + lastName;
 
-        console.log("b4 adding: ", selectedPlayerIds.length);
-
         if ($('#selectedPlayers').find(`[data-player="${fullName}"]`).length === 0){
             $('#selectedPlayers').append(`
                 <div class="selectedPlayer" data-id="${playerID}" data-player="${fullName}">
@@ -35,27 +33,34 @@ $(document).ready(function() {
         }
 
         if(!selectedPlayerIds.includes(playerID)){
-            if(selectedPlayerIds.length < 4){
+            if(!(selectedPlayerIds.length > 3)){
                 selectedPlayerIds.push(playerID);
             }
+            if(selectedPlayerIds.length === 3 || selectedPlayerIds.length === 4){
+                console.log("Calling submitRacers method");
+                submitRacers();
+            }
         }
-
-        console.log("after adding: ", selectedPlayerIds.length);
-
     });
 
     $('.dropdown-menu').on('click', '.removePlayer', function() {
         var playerID = $(this).parent().data("id");
-        console.log("Print all data: ", $(this));
-        console.log("before removing: ", selectedPlayerIds.length, ", ", playerID);
         $(this).parent('.selectedPlayer').remove();
 
         selectedPlayerIds = selectedPlayerIds.filter(id => id !==  Number(playerID));
-        console.log("after removing: ", selectedPlayerIds.length);
-        console.log(selectedPlayerIds);
+        if(selectedPlayerIds.length < 3)
+            hideSubmitRacers();
     });
 
     function submitRacers(){
-        
+        console.log("In submitRacersMethod");
+        $('#submitSelectedPlayers').removeClass('dropDownHidden').addClass('dropDownFlex');
+        $('.ExistButton').css("display", "none");
+    }
+
+    function hideSubmitRacers(){
+        console.log("In hide method");
+        $('#submitSelectedPlayers').removeClass('dropDownFlex').addClass('dropDownHidden');
+        $('.ExistButton').css('display', 'flex');
     }
 });

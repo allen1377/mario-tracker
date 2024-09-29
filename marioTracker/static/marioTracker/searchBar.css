@@ -28,3 +28,13 @@
     display: flex;
     justify-content: space-between;
 }
+
+#submitSelectedPlayers {
+    padding: 11px 6px;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #000a21;
+    outline: whitesmoke 1px solid;
+    color: whitesmoke;
+    max-width: 100px;
+}
