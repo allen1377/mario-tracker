@@ -62,6 +62,7 @@ class DisplayMapView(View):
         idList = getIDs.split(',') if getIDs else []
         selectedPlayers = get_list_or_404(Players, id__in=idList)
 
+        print("Passed")
         context = {
             'mapChoices': mapChoices,
             'mapTexts': mapTexts,

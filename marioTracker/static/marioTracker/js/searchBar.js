@@ -37,7 +37,7 @@ $(document).ready(function() {
                 selectedPlayerIds.push(playerID);
             }
             if(selectedPlayerIds.length === 3 || selectedPlayerIds.length === 4){
-                console.log("Calling submitRacers method");
+                //console.log("Calling submitRacers method");
                 submitRacers();
             }
         }
@@ -53,14 +53,23 @@ $(document).ready(function() {
     });
 
     function submitRacers(){
-        console.log("In submitRacersMethod");
+        //console.log("In submitRacersMethod");
         $('#submitSelectedPlayers').removeClass('dropDownHidden').addClass('dropDownFlex');
         $('.ExistButton').css("display", "none");
     }
 
     function hideSubmitRacers(){
-        console.log("In hide method");
+        //console.log("In hide method");
         $('#submitSelectedPlayers').removeClass('dropDownFlex').addClass('dropDownHidden');
         $('.ExistButton').css('display', 'flex');
     }
+
+    $('#submitSelectedPlayers').on('click', function(){
+        var baseURL = '/genMap' 
+        var queryParam = (selectedPlayerIds.length > 2 && selectedPlayerIds.length < 5) ? 
+            `?selectedPlayers=${selectedPlayerIds.join(',')}` : '';
+        console.log(baseURL, ", ", queryParam);
+
+        window.location.href = baseURL + queryParam;
+    });
 });
